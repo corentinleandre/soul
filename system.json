@@ -4,8 +4,7 @@
   "description": "The SOUL System for FoundryVTT, by Corentin LEANDRE.",
   "authors": [
     {
-      "name": "R3DStylum",
-      "discord": "r3dstylum"
+      "name": "Corentin LEANDRE"
     }
   ],
   "url": "https://github.com/corentinleandre/soul",
@@ -32,16 +31,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
-    },
-    {
-      "lang": "de",
-      "name": "Desoulch (German)",
-      "path": "lang/de.json"
     }
   ],
   "packs": [],
   "packFolders": [],
-  "manifest": "TODO",
+  "manifest": "https://github.com/corentinleandre/soul/issues/releases/latest/download/system.json",
   "download": "AUTOMATIC",
   "background": "",
   "initiative": "1d8",
