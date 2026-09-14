@@ -1,5 +1,5 @@
 /** @import CombatantConfig from "@client/applications/sheets/combatant-config.mjs" */
-/** @import UTSCombatant from "../../documents/UTSCombatant.mjs" */
+/** @import SOULCombatant from "../../documents/SOULCombatant.mjs" */
 
 /**
  * Adds a player ID field to the combatant config for player types.
@@ -8,7 +8,7 @@
  * @param {object} context
  */
 export function renderCombatantConfig(app, [html], context) {
-  /** @type {UTSCombatant} */
+  /** @type {SOULCombatant} */
   const combatant = app.document;
   if (combatant.type === "player") {
     const form = html.querySelector("form");

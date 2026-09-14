@@ -1,38 +1,38 @@
-const UTS = {};
+const SOUL = {};
 
-UTS.chess = {
+SOUL.chess = {
   pieces: {
     pawn: {
-      label: "UTS.Chess.Pieces.P",
+      label: "SOUL.Chess.Pieces.P",
       abbr: "P",
       value: 1,
     },
     knight: {
-      label: "UTS.Chess.Pieces.K",
+      label: "SOUL.Chess.Pieces.K",
       abbr: "N",
       value: 3,
     },
     bishop: {
-      label: "UTS.Chess.Pieces.B",
+      label: "SOUL.Chess.Pieces.B",
       abbr: "B",
       value: 3,
     },
     rook: {
-      label: "UTS.Chess.Pieces.R",
+      label: "SOUL.Chess.Pieces.R",
       abbr: "R",
       value: 5,
     },
     queen: {
-      label: "UTS.Chess.Pieces.Q",
+      label: "SOUL.Chess.Pieces.Q",
       abbr: "Q",
       value: 9,
     },
     king: {
-      label: "UTS.Chess.Pieces.K",
+      label: "SOUL.Chess.Pieces.K",
       abbr: "K",
       value: Infinity,
     },
   },
 };
 
-export default UTS;
+export default SOUL;

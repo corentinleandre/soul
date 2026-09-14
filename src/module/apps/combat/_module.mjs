@@ -1,1 +1,1 @@
-export { UTSCombatTracker } from "./UTSCombatTracker.mjs";
+export { SOULCombatTracker } from "./SOULCombatTracker.mjs";

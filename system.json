@@ -1,21 +1,17 @@
 {
-  "id": "universal-tabletop-system",
-  "title": "Universal Tabletop System",
-  "description": "The Universal Tabletop System for FoundryVTT, by Metamorphic Digital.",
+  "id": "soul",
+  "title": "SOUL",
+  "description": "The SOUL System for FoundryVTT, by Corentin LEANDRE.",
   "authors": [
     {
-      "name": "Joseph M.",
-      "discord": "chaosos"
-    },
-    {
-      "name": "Zhell",
-      "discord": "zhell9201"
+      "name": "R3DStylum",
+      "discord": "r3dstylum"
     }
   ],
-  "url": "https://github.com/MetaMorphic-Digital/universal-tabletop-system",
+  "url": "https://github.com/corentinleandre/soul",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/MetaMorphic-Digital/universal-tabletop-system/issues",
+  "bugs": "https://github.com/corentinleandre/soul/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -29,8 +25,8 @@
     "minimum": "13.351",
     "verified": "14"
   },
-  "esmodules": ["uts.mjs"],
-  "styles": ["uts.css"],
+  "esmodules": ["soul.mjs"],
+  "styles": ["soul.css"],
   "languages": [
     {
       "lang": "en",
@@ -39,20 +35,20 @@
     },
     {
       "lang": "de",
-      "name": "Deutsch (German)",
+      "name": "Desoulch (German)",
       "path": "lang/de.json"
     }
   ],
   "packs": [],
   "packFolders": [],
-  "manifest": "https://github.com/MetaMorphic-Digital/universal-tabletop-system/releases/latest/download/system.json",
+  "manifest": "TODO",
   "download": "AUTOMATIC",
   "background": "",
-  "initiative": "1d20",
+  "initiative": "1d8",
   "grid": {
     "type": 1,
-    "distance": 1,
-    "units": "in",
+    "distance": 2,
+    "units": "m",
     "diagonals": 0
   },
   "primaryTokenAttribute": "value",
@@ -69,7 +65,7 @@
   "flags": {
     "hotReload": {
       "extensions": ["css", "html", "hbs", "json"],
-      "paths": ["uts.css", "templates", "lang"]
+      "paths": ["soul.css", "templates", "lang"]
     }
   }
 }

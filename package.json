@@ -7,8 +7,8 @@
     "build": "rollup -c",
     "createSymlinks": "node ./tools/create-symlinks.mjs",
     "postinstall": "npm run createSymlinks",
-    "lint": "eslint uts.mjs src/module/**/* templates/**/*",
-    "lint:fix": "eslint --fix uts.mjs src/module/**/* templates/**/*"
+    "lint": "eslint soul.mjs src/module/**/* templates/**/*",
+    "lint:fix": "eslint --fix soul.mjs src/module/**/* templates/**/*"
   },
   "repository": {
     "type": "git",

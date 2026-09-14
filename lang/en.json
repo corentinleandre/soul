@@ -1,5 +1,5 @@
 {
-  "UTS": {
+  "SOUL": {
     "Chess": {
       "Pieces": {
         "P": "Pawn",
@@ -33,8 +33,8 @@
     },
     "Sheets": {
       "Labels": {
-        "ActorSheet": "Default UTS Actor Sheet",
-        "ItemSheet": "Default UTS Item Sheet"
+        "ActorSheet": "Default SOUL Actor Sheet",
+        "ItemSheet": "Default SOUL Item Sheet"
       },
       "Tabs": {
         "properties": "Properties",

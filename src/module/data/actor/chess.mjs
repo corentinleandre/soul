@@ -3,7 +3,7 @@
  */
 export default class ChessModel extends foundry.abstract.TypeDataModel {
   /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = ["UTS.Chess"];
+  static LOCALIZATION_PREFIXES = ["SOUL.Chess"];
 
   /* -------------------------------------------------- */
 
@@ -12,7 +12,7 @@ export default class ChessModel extends foundry.abstract.TypeDataModel {
     return {
       piece: new foundry.data.fields.StringField({
         required: true,
-        choices: CONFIG.UTS.chess.pieces,
+        choices: CONFIG.SOUL.chess.pieces,
         initial: "pawn",
       }),
     };
