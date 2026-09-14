@@ -23,14 +23,14 @@ jobs:
           files: "system.json"
         env:
           flags.hotReload: false
-          version: ${{steps.get_version.outpsoul.version-without-v}}
+          version: ${{steps.get_version.outputs.version-without-v}}
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
 
       # Set up Node
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: '20.10.0'
+          node-version: '26.8.2'
           cache: 'npm'
 
       # `npm ci` is recommended:
