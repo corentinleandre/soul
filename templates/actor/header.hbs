@@ -1,5 +1,6 @@
-<header class="sheet-header flexrow">
-  <img
+<header class="sheet-header flexcol">
+  <div class="flexrow">
+    <img
     class="profile-img"
     src="{{actor.img}}"
     alt="{{actor.name}}"
@@ -9,6 +10,22 @@
     {{/if}}
     data-tooltip="{{actor.name}}"
     height="100" width="100"
-  >
-  {{formInput actorFields.name value=actor.name}}
+    >
+    {{formInput actorFields.name value=actor.name}}
+  </div>
+<div class="flexrow">
+  <div class="stats grid grid-2col">
+    <div class="labels grid grid-3row">
+      <div></div>
+      <div class="label">Base</div>
+      <div class="label">Bonus</div>
+    </div>
+    <div class="strength grid grid-3row">
+      <div class="title">Str</div>
+      <div class="label">{{system.strength}}</div>
+      <div class="label">{{system.strengthBonus}}</div>
+    </div>
+
+  </div>
+</div>
 </header>
