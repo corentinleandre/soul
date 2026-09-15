@@ -10,7 +10,6 @@ export default class BaseCreatureModel extends foundry.abstract.TypeDataModel {
   /** @inheritdoc */
   static defineSchema(){
     return {
-      ...super.defineSchema(),
       strength : new NumberField({required: true, integer: true, min: 0, initial: 25}),
       dexterity : new NumberField({required: true, integer: true, min: 0, initial: 25}),
       senses : new NumberField({required: true, integer: true, min: 0, initial: 25}),
