@@ -1,3 +1,5 @@
+const { SchemaField, NumberField } = foundry.data.fields;
+
 /**
  * Simple data model for game tokens as a type of actor.
  */
