@@ -50,7 +50,8 @@
   "documentTypes": {
     "Actor": {
       "token": {},
-      "chess": {}
+      "chess": {},
+      "basecreature": {}
     },
     "Combatant": {
       "player": {}
