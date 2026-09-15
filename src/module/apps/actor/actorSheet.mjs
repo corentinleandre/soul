@@ -86,8 +86,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
 
-    console.log(this.actor.system);
-
     Object.assign(context, {
       owner: this.document.isOwner,
       limited: this.document.limited,
