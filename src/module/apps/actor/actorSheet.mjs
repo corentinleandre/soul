@@ -311,7 +311,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   /* -------------------------------------------------- */
 
   /**
-   * Disables inpsoul subject to active effects.
+   * Disables inputs subject to active effects.
    */
   #disableOverrides() {
     const flatOverrides = foundry.utils.flattenObject(this.actor.overrides);
