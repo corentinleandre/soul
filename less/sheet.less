@@ -1,10 +1,17 @@
 .application.sheet.soul {
   max-height: 90%;
+  background-color: @soul-backgroud-color;
 
   &.actor, &.item {
     .window-content {
       padding-top: 0;
     }
+  }
+
+  .lable-black {
+    padding: 10px;
+    background-color: @soul-black;
+    color: @soul-white;
   }
 
   .sheet-header {
@@ -18,6 +25,20 @@
       font-size: 2rem;
     }
   }
+
+  .stats {
+    input[type="number"] {
+      background-color: @soul-white;
+      border: 2px solid @soul-border-color;
+      color: @soul-title-brown;
+    }
+
+    .title {
+      background-color: @soul-title-brown;
+      color: @soul-white;
+    }
+  }
+
   .tab {
     height: 100%;
     padding-top: 10px;
