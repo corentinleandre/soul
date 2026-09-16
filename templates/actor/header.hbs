@@ -14,7 +14,7 @@
     {{formInput actorFields.name value=actor.name}}
   </div>
   <div class="flexrow">
-    <div class="stats grid grid-3row grid-flow-horizontal">
+    <div class="stats grid grid-3row grid-flow-horizontal grid-align-center">
       <!-- labels -->
       <div> </div>
       <div class="label">Base</div>
@@ -37,6 +37,21 @@
       <div>{{formGroup systemFields.endurance value=system.endurance localize=true}}</div>
       <div>{{system.enduranceBonus}}</div>
 
+      <div class="title">Agi</div>
+      <div>{{formGroup systemFields.agility value=system.agility localize=true}}</div>
+      <div>{{system.agilityBonus}}</div>
+
+      <div class="title">Int</div>
+      <div>{{formGroup systemFields.intelligence value=system.intelligence localize=true}}</div>
+      <div>{{system.intelligenceBonus}}</div>
+
+      <div class="title">Res</div>
+      <div>{{formGroup systemFields.resilience value=system.resilience localize=true}}</div>
+      <div>{{system.resilienceBonus}}</div>
+
+      <div class="title">Soc</div>
+      <div>{{formGroup systemFields.social value=system.social localize=true}}</div>
+      <div>{{system.socialBonus}}</div>
     </div>
   </div>
 </header>
