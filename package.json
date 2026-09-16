@@ -4,7 +4,9 @@
   "description": "Universal Tabletop System",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "npm run build:code && npm run build:css",
+    "build:code": "rollup -c",
+    "build:css": "lessc less/soul.less soul.css",
     "createSymlinks": "node ./tools/create-symlinks.mjs",
     "postinstall": "npm run createSymlinks",
     "lint": "eslint soul.mjs src/module/**/* templates/**/*",
@@ -27,10 +29,12 @@
     "@eslint/js": "^9.27.0",
     "@html-eslint/eslint-plugin": "^0.26.0",
     "@html-eslint/parser": "^0.26.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@stylistic/eslint-plugin": "^5.5.0",
     "eslint": "^9.27.0",
     "eslint-plugin-jsdoc": "^51.4.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.9.1"
+    "less": "^4.9.1",
+    "rollup": "^4.9.1",
+    "less-watch-compiler": "^1.19.9"
   }
 }
