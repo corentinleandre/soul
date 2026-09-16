@@ -31,16 +31,13 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     primary: {
       tabs: [
         {
-          id: "properties",
-        },
-        {
           id: "items",
         },
         {
           id: "effects",
         },
       ],
-      initial: "properties",
+      initial: "items",
       labelPrefix: "SOUL.Sheets.Tabs",
     },
   };
@@ -54,10 +51,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     },
     tabs: {
       template: "templates/generic/tab-navigation.hbs",
-    },
-    properties: {
-      template: systemPath("templates/shared/properties.hbs"),
-      scrollable: [""],
     },
     items: {
       template: systemPath("templates/actor/items.hbs"),
@@ -111,41 +104,12 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
         context.tab = context.tabs[partId];
         break;
-      case "properties":
-        context.fields = await this._getFields();
-        context.tab = context.tabs[partId];
-        break;
       case "items":
         context.itemTypes = this._getItems();
         context.tab = context.tabs[partId];
         break;
     }
     return context;
-  }
-
-  /* -------------------------------------------------- */
-
-  /**
-   * Handles the system fields for the form-fields generic.
-   * @returns {object[]}
-   */
-  async _getFields() {
-    const doc = this.actor;
-    const source = doc._source;
-    const systemFields = CONFIG.Actor.dataModels[doc.type]?.schema.fields;
-    const fieldSets = [];
-    // TODO: Find a clever way to handle enrichment
-    for (const field of Object.values(systemFields ?? {})) {
-      const path = `system.${field.name}`;
-      if (field instanceof foundry.data.fields.SchemaField) {
-        const fieldset = { fieldset: true, legend: field.label, fields: [] };
-        await this.#addSystemFields(fieldset, field.fields, source, path);
-        fieldSets.push(fieldset);
-      } else {
-        fieldSets.push({ outer: { field, value: foundry.utils.getProperty(source, path) } });
-      }
-    }
-    return fieldSets;
   }
 
   /* -------------------------------------------------- */
