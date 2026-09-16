@@ -7,14 +7,19 @@ export default class SOULActor extends foundry.documents.Actor {
   prepareDerivedData() {
     super.prepareDerivedData();
 
-    this.strengthBonus = Math.floor(this.strength/10)
-    this.dexterityBonus = Math.floor(this.dexterity/10)
-    this.sensesBonus = Math.floor(this.senses/10)
-    this.enduranceBonus = Math.floor(this.endurance/10)
-    this.agilityBonus = Math.floor(this.agility/10)
-    this.intelligenceBonus = Math.floor(this.intelligence/10)
-    this.resilienceBonus = Math.floor(this.resilience/10)
-    this.socialBonus = Math.floor(this.social/10)
+    // Convenience reads
+    const actorData = this;
+    const systemData = actorData.system;
+    const flags = actorData.flags.soul || {};
+
+    systemData.strengthBonus = Math.floor(systemData.strength/10)
+    systemData.dexterityBonus = Math.floor(systemData.dexterity/10)
+    systemData.sensesBonus = Math.floor(systemData.senses/10)
+    systemData.enduranceBonus = Math.floor(systemData.endurance/10)
+    systemData.agilityBonus = Math.floor(systemData.agility/10)
+    systemData.intelligenceBonus = Math.floor(systemData.intelligence/10)
+    systemData.resilienceBonus = Math.floor(systemData.resilience/10)
+    systemData.socialBonus = Math.floor(systemData.social/10)
 
     /**
      * Flexible hook for modules to alter derived document data.
