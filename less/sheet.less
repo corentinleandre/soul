@@ -1,6 +1,7 @@
 .application.sheet.soul {
   max-height: 90%;
   background-color: @soul-backgroud-color;
+  color: @soul-primary;
 
   &.actor, &.item {
     .window-content {
@@ -8,9 +9,15 @@
     }
   }
 
-  .lable-black {
+  .label-black {
     padding: 10px;
     background-color: @soul-black;
+    color: @soul-white;
+  }
+
+  .label-brown {
+    padding: 3px;
+    background-color: @soul-primary;
     color: @soul-white;
   }
 
@@ -30,12 +37,7 @@
     input[type="number"] {
       background-color: @soul-white;
       border: 2px solid @soul-border-color;
-      color: @soul-title-brown;
-    }
-
-    .title {
-      background-color: @soul-title-brown;
-      color: @soul-white;
+      color: @soul-primary;
     }
   }
 
