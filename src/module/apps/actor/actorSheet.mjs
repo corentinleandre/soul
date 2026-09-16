@@ -93,6 +93,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
       limited: this.document.limited,
       actor: this.actor,
       system: this.actor.system,
+      systemFields: this.actor.system.schema.fields,
       flags: this.actor.flags,
       actorFields: this.actor.schema.fields,
       config: CONFIG,
