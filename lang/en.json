@@ -1,5 +1,25 @@
 {
   "SOUL": {
+    "Stats": {
+      "strength":"Strength",
+      "dexterity":"Dexterity",
+      "senses":"Senses",
+      "endurance":"Endurance",
+      "agility":"Agility",
+      "intelligence":"Intelligence",
+      "resilience":"Resilience",
+      "social":"Social",
+      "Shorthands" :{
+        "strength":"Str",
+        "dexterity":"Dex",
+        "senses":"Sen",
+        "endurance":"End",
+        "agility":"Agi",
+        "intelligence":"Int",
+        "resilience":"Res",
+        "social":"Soc"
+      }
+    },
     "Chess": {
       "Pieces": {
         "P": "Pawn",
@@ -64,7 +84,8 @@
   "TYPES": {
     "Actor": {
       "chess": "Chess Piece",
-      "token": "Game Token"
+      "token": "Game Token",
+      "basecreature":"Base Creature"
     },
     "Combatant": {
       "player": "Player"
