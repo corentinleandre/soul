@@ -1,26 +1,24 @@
-<header class="sheet-header flexcol">
-  <div class="flexrow">
-    <img
-    class="profile-img"
-    src="{{actor.img}}"
-    alt="{{actor.name}}"
-    {{#if editable}}
-    data-action="editImage"
-    data-edit="img"
-    {{/if}}
-    data-tooltip="{{actor.name}}"
-    height="100" width="100"
-    >
-    {{formInput actorFields.name value=actor.name}}
-  </div>
+{{! Stats tab}}
+<section class="tab scrollable {{tab.cssClass}}" data-group:"primary" data-tab:"items">
   <div class="flexrow">
     <div class="stats grid grid-3row grid-flow-horizontal grid-align-center">
       <!-- labels -->
       <div> </div>
       <div class="label-black">{{localize 'SOUL.Stats.base'}}</div>
-      <div class="label-black">{{localize 'SOUL.Stats.bonus'}}</div>
+      <div class="label-black">{{localize 'SOUL.Stats.modifiers'}}</div>
+      <div class="label-black">{{localize 'SOUL.Stats.advancements'}}</div>
+      <div class="label-black">{{localize 'SOUL.Stats.total'}}</div>
 
-      <!-- stats -->
+      <!-- stats auto -->
+      {{#each stats as |stat name|}}
+      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.{{name}}'}}</div>
+      <div class="soul-tile">{{stat.base}}</div>
+      <div class="soul-tile">{{stat.modifier}}</div>
+      <div class="soul-tile">{{stat.advances}}</div>
+      <div class="soul-tile">{{stat.value}}</div>
+      {{/each}}
+
+      <!-- stats old
       <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.strength'}}</div>
       <div class="soul-tile">{{system.strength.value}}</div>
       <div class="soul-tile">{{system.strength.bonus}}</div>
@@ -52,6 +50,7 @@
       <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.social'}}</div>
       <div class="soul-tile">{{system.social.value}}</div>
       <div class="soul-tile">{{system.social.bonus}}</div>
+      -->
     </div>
   </div>
-</header>
+</section>

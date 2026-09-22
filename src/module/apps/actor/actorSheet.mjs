@@ -31,6 +31,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     primary: {
       tabs: [
         {
+          id: "stats"
+        },
+        {
           id: "items",
         },
         {
@@ -51,6 +54,10 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     },
     tabs: {
       template: "templates/generic/tab-navigation.hbs",
+    },
+    stats: {
+      template: systemPath("templates/actor/stats.hbs"),
+      scrollable: [""],
     },
     items: {
       template: systemPath("templates/actor/items.hbs"),
@@ -100,6 +107,13 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
     switch (partId) {
+      case "stats":
+        let stats = {}
+        for(const stat in CONFIG.SOUL.stats){
+          stats[stat] = this.actor.system[stat]
+        }
+        context.stats = stats;
+        break;
       case "effects":
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
         context.tab = context.tabs[partId];

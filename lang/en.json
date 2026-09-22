@@ -18,7 +18,14 @@
         "intelligence":"Int",
         "resilience":"Res",
         "social":"Soc"
-      }
+      },
+
+      "base":"Base",
+      "modifiers":"Modifiers",
+      "advancements":"Advancements",
+      "bonus":"Bonus",
+      "rawBonus":"Raw Bonus",
+      "total":"Total"
     },
     "Chess": {
       "Pieces": {
@@ -57,7 +64,7 @@
         "ItemSheet": "Default SOUL Item Sheet"
       },
       "Tabs": {
-        "properties": "Properties",
+        "stats": "Stats",
         "items": "Items",
         "effects": "Effects"
       }
