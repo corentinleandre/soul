@@ -7,7 +7,7 @@ export class StatsModel extends SystemDataModel {
   static defineSchema(){
     let statSchema = {};
 
-    for(const stat in SOUL.stats){
+    for(const stat in CONFIG.SOUL.stats){
       statSchema[stat] = new StatField();
     }
 
@@ -19,7 +19,7 @@ export class StatsModel extends SystemDataModel {
   }
 
   computeStats(){
-    for(const stat in SOUL.stats){
+    for(const stat in CONFIG.SOUL.stats){
       this[stat].compute?.();
     }
   }

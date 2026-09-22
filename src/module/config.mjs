@@ -1,7 +1,5 @@
 import * as config from "./config/_module.mjs";
 
-console.log(config)
-
 const SOUL = {};
 
 /* Populate the config using all the configs in the config folder */
