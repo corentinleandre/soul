@@ -5,7 +5,7 @@ import Base from "./base.mjs";
 const config = {
   chess: ChessModel,
   token: GameTokenModel,
-  basecreature: Base,
+  base: Base,
 };
 
 export { ChessModel, GameTokenModel, Base, config };

@@ -13,19 +13,17 @@ export class StatsModel extends SystemDataModel {
       statSchema[stat] = new StatField();
     }
 
-    return this.mergeSchema(super.defineSchema(), {
-      strength: new StatField(),
-      dexterity: new StatField(),
-      senses: new StatField(),
-      endurance: new StatField(),
-      agility: new StatField(),
-      intelligence: new StatField(),
-      resilience: new StatField(),
-      social: new StatField()
+    const schema = this.mergeSchema(statSchema, {
+
     })
+
+    return this.mergeSchema(super.defineSchema(), schema)
   }
 
   computeStats(){
+    console.log("computing this");
+    console.log(this);
+
     for(const stat in this.statList){
       this[stat].compute();
     }
