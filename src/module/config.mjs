@@ -1,11 +1,13 @@
 import * as config from "./config/_module.mjs";
 
+console.log(config)
+
 const SOUL = {};
 
 /* Populate the config using all the configs in the config folder */
 
-for(const [key, value] in Object.entries(config)){
-  SOUL[key] = value;
+for(const key in config){
+  SOUL[key] = config[key];
 }
 
 SOUL.chess = {
