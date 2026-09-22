@@ -34,7 +34,7 @@ export class StatsModel extends SystemDataModel {
    */
   compute(stat){
     // Dont compute bullshit
-    if(!Object.keys(CONFIG.SOUL.stats).contains(stat)){
+    if(!Object.keys(CONFIG.SOUL.stats).includes(stat)){
       return;
     }
     this._computeValue(stat)
