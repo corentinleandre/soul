@@ -22,6 +22,9 @@ export class StatsModel extends SystemDataModel {
     for(const stat in CONFIG.SOUL.stats){
       this[stat].compute?.();
     }
+
+    console.log("computed on :")
+    console.log(this);
   }
 }
 
