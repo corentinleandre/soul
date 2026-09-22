@@ -11,7 +11,7 @@
 
       <!-- stats auto -->
       {{#each stats as |stat name|}}
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.{{name}}'}}</div>
+      <div class="label-brown">{{localize stat.shorthand}}</div>
       <div class="soul-tile">{{stat.base}}</div>
       <div class="soul-tile">{{stat.modifier}}</div>
       <div class="soul-tile">{{stat.advances}}</div>

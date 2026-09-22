@@ -111,6 +111,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         let stats = {}
         for(const stat in CONFIG.SOUL.stats){
           stats[stat] = this.actor.system[stat]
+          for(const conf in CONFIG.SOUL.stats[stat]){
+            stats[conf] = CONFIG.SOUL.stats[stat][conf]
+          }
         }
         context.stats = stats;
         break;
