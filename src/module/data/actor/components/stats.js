@@ -9,7 +9,7 @@ export class StatsModel extends SystemDataModel {
   static defineSchema(){
     let statSchema = {};
 
-    for(const stat in this.statList){
+    for(const stat of this.statList){
       statSchema[stat] = new StatField();
     }
 
@@ -21,10 +21,7 @@ export class StatsModel extends SystemDataModel {
   }
 
   computeStats(){
-    console.log("computing this");
-    console.log(this);
-
-    for(const stat in this.statList){
+    for(const stat of this.statList){
       this[stat].compute();
     }
   }
