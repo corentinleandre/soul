@@ -32,13 +32,10 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
     primary: {
       tabs: [
         {
-          id: "properties",
-        },
-        {
           id: "effects",
         },
       ],
-      initial: "properties",
+      initial: "effects",
       labelPrefix: "SOUL.Sheets.Tabs",
     },
   };
@@ -53,10 +50,6 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
     tabs: {
       // Foundry-provided generic template
       template: "templates/generic/tab-navigation.hbs",
-    },
-    properties: {
-      template: systemPath("templates/shared/properties.hbs"),
-      scrollable: [""],
     },
     effects: {
       template: systemPath("templates/shared/effects.hbs"),
@@ -103,10 +96,6 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
     switch (partId) {
       case "effects":
         context.effects = prepareActiveEffectCategories(this.item.effects);
-        context.tab = context.tabs[partId];
-        break;
-      case "properties":
-        context.fields = await this._getFields();
         context.tab = context.tabs[partId];
         break;
     }

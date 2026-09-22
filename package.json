@@ -34,7 +34,8 @@
     "eslint": "^9.27.0",
     "eslint-plugin-jsdoc": "^51.4.1",
     "less": "^4.9.1",
+    "less-watch-compiler": "^1.19.9",
     "rollup": "^4.9.1",
-    "less-watch-compiler": "^1.19.9"
+    "js-yaml": "^5.4.2"
   }
 }
