@@ -4,6 +4,7 @@ const { SchemaField, NumberField } = foundry.data.fields;
 
 export class StatsModel extends SystemDataModel {
 
+  /** @inheritdoc */
   static defineSchema(){
     let statSchema = {};
 
@@ -18,12 +19,19 @@ export class StatsModel extends SystemDataModel {
     return this.mergeSchema(super.defineSchema(), schema)
   }
 
+  /**
+   * Compute all the stats for this stat model
+   */
   computeStats(){
     for(const stat in CONFIG.SOUL.stats){
       this.compute(stat);
     }
   }
 
+  /**
+   * A function to compute & update all the value, rawBonus and Bonus of stats
+   * @param {String} stat the name of the stat that needs computing/updating
+   */
   compute(stat){
     // Dont compute bullshit
     if(!Object.keys(CONFIG.SOUL.stats).contains(stat)){
@@ -34,11 +42,19 @@ export class StatsModel extends SystemDataModel {
     this._computeBonus(stat)
   }
 
+  /**
+   * Computes the value of a stat based on it's base, modifiers and advances
+   * @param {String} stat the name of the stat that needs computing/updating
+   */
   _computeValue(stat){
     const obj = this[stat];
     obj.value = obj.base + obj.modifier + obj.advances;
   }
 
+  /**
+   * Computes the raw bonus of a stat based on it's value
+   * @param {String} stat the name of the stat that needs computing/updating
+   */
   _computeRawBonus(stat){
     const obj = this[stat];
     if(obj.value == null){
@@ -47,6 +63,10 @@ export class StatsModel extends SystemDataModel {
     obj.rawBonus = Math.floor(obj.value / 10);
   }
 
+  /**
+   * Computes the bonus of a stat by adding the modifier
+   * @param {*} stat the name of the stat that needs computing/updating
+   */
   _computeBonus(stat){
     const obj = this[stat];
     if(obj.rawBonus == null){
@@ -68,25 +88,5 @@ export class StatField extends SchemaField {
       ...fields
     }
     super(fields,options);
-  }
-
-  compute(){
-    this.computeValue();
-    this.computeRawBonus();
-    this.computeBonus();
-  }
-
-  computeValue(){
-    this.value = this.base + this.modifier + this.advances;
-    console.log("computed value on");
-    console.log(this)
-  }
-
-  computeBonus(){
-    this.bonus = this.rawBonus + this.bonusMod;
-  }
-
-  computeRawBonus(){
-    this.rawBonus = Math.floor(this.value / 10);
   }
 }
