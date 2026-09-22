@@ -51,7 +51,7 @@
     "Actor": {
       "token": {},
       "chess": {},
-      "base": {}
+      "basechar": {}
     },
     "Combatant": {
       "player": {}
