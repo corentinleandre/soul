@@ -20,13 +20,42 @@ export class StatsModel extends SystemDataModel {
 
   computeStats(){
     for(const stat in CONFIG.SOUL.stats){
-      console.log(this[stat])
-      this[stat].compute?.();
+      this.compute(stat);
     }
-
-    console.log("computed on :")
-    console.log(this);
   }
+
+  compute(stat){
+    // Dont compute bullshit
+    if(!Object.keys(CONFIG.SOUL.stats).contains(stat)){
+      return;
+    }
+    this._computeValue(stat)
+    this._computeRawBonus(stat)
+    this._computeBonus(stat)
+  }
+
+  _computeValue(stat){
+    const obj = this[stat];
+    obj.value = obj.base + obj.modifier + obj.advances;
+  }
+
+  _computeRawBonus(stat){
+    const obj = this[stat];
+    if(obj.value == null){
+      this._computeValue(stat);
+    }
+    obj.rawBonus = Math.floor(obj.value / 10);
+  }
+
+  _computeBonus(stat){
+    const obj = this[stat];
+    if(obj.rawBonus == null){
+      this._computeRawBonus(stat);
+    }
+    obj.bonus = obj.rawBonus + obj.bonusMod;
+  }
+
+
 }
 
 export class StatField extends SchemaField {
