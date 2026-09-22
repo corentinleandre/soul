@@ -48,6 +48,8 @@ export class StatField extends SchemaField {
 
   computeValue(){
     this.value = this.base + this.modifier + this.advances;
+    console.log("computed value on");
+    console.log(this)
   }
 
   computeBonus(){
