@@ -3,7 +3,16 @@ import SystemDataModel from "../../abstract/system-data-model.mjs";
 const { SchemaField, NumberField } = foundry.data.fields;
 
 export class StatsModel extends SystemDataModel {
+
+  static statList = Object.freeze(["strength","dexterity","senses","endurance","agility","intelligence","resilience","social"]);
+
   static defineSchema(){
+    let statSchema = {};
+
+    for(const stat in this.statList){
+      statSchema[stat] = new StatField();
+    }
+
     return this.mergeSchema(super.defineSchema(), {
       strength: new StatField(),
       dexterity: new StatField(),
@@ -14,6 +23,12 @@ export class StatsModel extends SystemDataModel {
       resilience: new StatField(),
       social: new StatField()
     })
+  }
+
+  computeStats(){
+    for(const stat in this.statList){
+      this[stat].compute();
+    }
   }
 }
 
@@ -29,15 +44,21 @@ export class StatField extends SchemaField {
     super(fields,options);
   }
 
-  get value() {
-    return this.base + this.modifier + this.advances;
+  compute(){
+    this.computeValue();
+    this.computeRawBonus();
+    this.computeBonus();
   }
 
-  get bonus(){
-    return this.rawBonus + bonusMod;
+  computeValue(){
+    this.value = this.base + this.modifier + this.advances;
   }
 
-  get rawBonus(){
-    return Math.floor(this.value / 10);
+  computeBonus(){
+    this.bonus = this.rawBonus + this.bonusMod;
+  }
+
+  computeRawBonus(){
+    this.rawBonus = Math.floor(this.value / 10);
   }
 }

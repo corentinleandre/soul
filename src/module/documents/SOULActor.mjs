@@ -12,14 +12,7 @@ export default class SOULActor extends foundry.documents.Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.soul || {};
 
-    systemData.strengthBonus = Math.floor(systemData.strength/10)
-    systemData.dexterityBonus = Math.floor(systemData.dexterity/10)
-    systemData.sensesBonus = Math.floor(systemData.senses/10)
-    systemData.enduranceBonus = Math.floor(systemData.endurance/10)
-    systemData.agilityBonus = Math.floor(systemData.agility/10)
-    systemData.intelligenceBonus = Math.floor(systemData.intelligence/10)
-    systemData.resilienceBonus = Math.floor(systemData.resilience/10)
-    systemData.socialBonus = Math.floor(systemData.social/10)
+    systemData.computeStats?.();
 
     /**
      * Flexible hook for modules to alter derived document data.
