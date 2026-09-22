@@ -4,12 +4,10 @@ const { SchemaField, NumberField } = foundry.data.fields;
 
 export class StatsModel extends SystemDataModel {
 
-  static statList = Object.freeze(["strength","dexterity","senses","endurance","agility","intelligence","resilience","social"]);
-
   static defineSchema(){
     let statSchema = {};
 
-    for(const stat of this.statList){
+    for(const stat in SOUL.stats){
       statSchema[stat] = new StatField();
     }
 
@@ -21,8 +19,8 @@ export class StatsModel extends SystemDataModel {
   }
 
   computeStats(){
-    for(const stat of this.statList){
-      this[stat].compute();
+    for(const stat in SOUL.stats){
+      this[stat].compute?.();
     }
   }
 }
