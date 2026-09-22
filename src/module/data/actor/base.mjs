@@ -1,5 +1,5 @@
 import ActorDataModel from "../abstract/actor-data-model.mjs"
-import StatsModel from "./components/stats"
+import { StatsModel } from "./components/stats"
 
 const { SchemaField, NumberField } = foundry.data.fields;
 
