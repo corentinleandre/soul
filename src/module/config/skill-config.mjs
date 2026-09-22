@@ -1,4 +1,4 @@
-export default skills = {
+const skills = {
   row: {
 
   },
@@ -6,3 +6,5 @@ export default skills = {
 
   }
 }
+
+export default skills;

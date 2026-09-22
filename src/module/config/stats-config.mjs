@@ -1,4 +1,4 @@
-export default stats = {
+const stats = {
     strength: {
 
     },
@@ -24,3 +24,5 @@ export default stats = {
 
     }
 }
+
+export default stats;

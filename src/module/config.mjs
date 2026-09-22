@@ -1,4 +1,4 @@
-import * as config from "./config/_module.mjs";
+import config from "./config/_module.mjs";
 
 const SOUL = {};
 
