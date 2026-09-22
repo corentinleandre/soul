@@ -1,6 +1,6 @@
 import SystemDataModel from "../../abstract/system-data-model.mjs";
 
-let fields = foundry.data.fields;
+const { SchemaField, NumberField } = foundry.data.fields;
 
 export class StatsModel extends SystemDataModel {
   static defineSchema(){
@@ -17,7 +17,7 @@ export class StatsModel extends SystemDataModel {
   }
 }
 
-export class StatField extends fields.SchemaField {
+export class StatField extends SchemaField {
   constructor(fields={}, options={}){
     fields = {
       base: new NumberField({required:true, integer: true, min: 0, initial:25}),
