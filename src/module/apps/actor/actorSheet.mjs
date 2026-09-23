@@ -86,7 +86,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
 
-    console.log(this.actor.system.schema.fields);
+    console.log(this.actor.system.schema);
 
     Object.assign(context, {
       owner: this.document.isOwner,
@@ -111,7 +111,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         let stats = {}
         for(const stat in CONFIG.SOUL.stats){
           stats[stat] = this.actor.system[stat]
-          stats[stat].field = this.actor.system.schema.fields.stats.strength
+          stats[stat].field = this.actor.system.schema.fields[stat].fields.base
           for(const conf in CONFIG.SOUL.stats[stat]){
             stats[stat][conf] = CONFIG.SOUL.stats[stat][conf]
           }
