@@ -40,7 +40,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           id: "effects",
         },
       ],
-      initial: "items",
+      initial: "stats",
       labelPrefix: "SOUL.Sheets.Tabs",
     },
   };
