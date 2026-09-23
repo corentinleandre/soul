@@ -12,45 +12,11 @@
       <!-- stats auto -->
       {{#each stats as |stat name|}}
       <div class="label-brown">{{localize stat.shorthand}}</div>
-      <div class="soul-tile">{{stat.base}}</div>
+      <div class="soul-tile">{{formInput systemFields.{{name}}.base value=stat.base}}</div>
       <div class="soul-tile">{{stat.modifier}}</div>
       <div class="soul-tile">{{stat.advances}}</div>
       <div class="soul-tile">{{stat.value}}</div>
       {{/each}}
-
-      <!-- stats old
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.strength'}}</div>
-      <div class="soul-tile">{{system.strength.value}}</div>
-      <div class="soul-tile">{{system.strength.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.dexterity'}}</div>
-      <div class="soul-tile">{{system.dexterity.value}}</div>
-      <div class="soul-tile">{{system.dexterity.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.senses'}}</div>
-      <div class="soul-tile">{{system.senses.value}}</div>
-      <div class="soul-tile">{{system.senses.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.endurance'}}</div>
-      <div class="soul-tile">{{system.endurance.value}}</div>
-      <div class="soul-tile">{{system.endurance.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.agility'}}</div>
-      <div class="soul-tile">{{system.agility.value}}</div>
-      <div class="soul-tile">{{system.agility.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.intelligence'}}</div>
-      <div class="soul-tile">{{system.intelligence.value}}</div>
-      <div class="soul-tile">{{system.intelligence.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.resilience'}}</div>
-      <div class="soul-tile">{{system.resilience.value}}</div>
-      <div class="soul-tile">{{system.resilience.bonus}}</div>
-
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.social'}}</div>
-      <div class="soul-tile">{{system.social.value}}</div>
-      <div class="soul-tile">{{system.social.bonus}}</div>
-      -->
     </div>
   </div>
 </section>
