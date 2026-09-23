@@ -12,7 +12,7 @@
       <!-- stats auto -->
       {{#each stats as |stat name|}}
       <div class="label-brown">{{localize stat.shorthand}}</div>
-      <div class="soul-tile">{{formInput systemFields.{{name}}.base value=stat.base}}</div>
+      <div class="soul-tile">{{formInput stat.field value=stat.base}}</div>
       <div class="soul-tile">{{stat.modifier}}</div>
       <div class="soul-tile">{{stat.advances}}</div>
       <div class="soul-tile">{{stat.value}}</div>
