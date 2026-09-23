@@ -20,11 +20,14 @@
       <div class="label-black">{{localize 'SOUL.Stats.base'}}</div>
       <div class="label-black">{{localize 'SOUL.Stats.bonus'}}</div>
 
-      <!-- stats -->
-      <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.strength'}}</div>
-      <div class="soul-tile">{{system.strength.value}}</div>
-      <div class="soul-tile">{{system.strength.bonus}}</div>
+      {{#each stats as |stat name|}}
+      <!-- stats auto -->
+      <div class="label-brown">{{localize stat.shorthand}}</div>
+      <div class="soul-tile">{{stat.value}}</div>
+      <div class="soul-tile">{{stat.bonus}}</div>
+      {{/each}}
 
+      <!-- old stats
       <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.dexterity'}}</div>
       <div class="soul-tile">{{system.dexterity.value}}</div>
       <div class="soul-tile">{{system.dexterity.bonus}}</div>
@@ -52,6 +55,7 @@
       <div class="label-brown">{{localize 'SOUL.Stats.Shorthands.social'}}</div>
       <div class="soul-tile">{{system.social.value}}</div>
       <div class="soul-tile">{{system.social.bonus}}</div>
+      -->
     </div>
   </div>
 </header>

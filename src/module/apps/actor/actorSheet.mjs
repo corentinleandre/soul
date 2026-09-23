@@ -99,6 +99,17 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
       config: CONFIG,
     });
 
+    // clean ? IDK but does exactly what I want
+    let stats = {}
+    for(const stat in CONFIG.SOUL.stats){
+      stats[stat] = this.actor.system[stat]
+      stats[stat].field = this.actor.system.schema.fields[stat].fields.base
+      for(const statConfig in CONFIG.SOUL.stats[stat]){
+        stats[stat][statConfig] = CONFIG.SOUL.stats[stat][statConfig]
+      }
+    }
+    context.stats = stats;
+
     return context;
   }
 
@@ -108,15 +119,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   async _preparePartContext(partId, context) {
     switch (partId) {
       case "stats":
-        let stats = {}
-        for(const stat in CONFIG.SOUL.stats){
-          stats[stat] = this.actor.system[stat]
-          stats[stat].field = this.actor.system.schema.fields[stat].fields.base
-          for(const conf in CONFIG.SOUL.stats[stat]){
-            stats[stat][conf] = CONFIG.SOUL.stats[stat][conf]
-          }
-        }
-        context.stats = stats;
         break;
       case "effects":
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
