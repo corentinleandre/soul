@@ -93,7 +93,8 @@
       "Tabs": {
         "stats": "Stats",
         "items": "Items",
-        "effects": "Effects"
+        "effects": "Effects",
+        "characteristics":"Characteristics"
       }
     },
     "Combat": {
