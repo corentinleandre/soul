@@ -60,7 +60,7 @@ export class CharacteristicsModel extends SystemDataModel {
     //check if config has a max (char is already checked as included)
     //If not, return
     const toCompute = CONFIG.SOUL.characteristics[char][option];
-    const computedVal = 0;
+    let computedVal = 0;
 
     //compute max
     for(const step of toCompute){
