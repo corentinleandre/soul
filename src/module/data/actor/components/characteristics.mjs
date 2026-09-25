@@ -2,7 +2,7 @@ import SystemDataModel from "../../abstract/system-data-model.mjs";
 
 const { SchemaField, NumberField } = foundry.data.fields;
 
-export default class CharacteristicsModel {
+export class CharacteristicsModel extends SystemDataModel {
 
   /** @inheritdoc */
   static defineSchema(){
