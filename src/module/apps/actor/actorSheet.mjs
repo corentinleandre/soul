@@ -157,7 +157,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           characteristics[char] = this.actor.system[char]
           characteristics[char].field = this.actor.system.schema.fields[char].fields.value
           for(const charConfig in CONFIG.SOUL.characteristics[char]){
-            characteristics[char][charConfig] = CONFIG.SOUL.stats[char][charConfig]
+            characteristics[char][charConfig] = CONFIG.SOUL.characteristics[char][charConfig]
           }
         }
         context.characteristics = characteristics;
