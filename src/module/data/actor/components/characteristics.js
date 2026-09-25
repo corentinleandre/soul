@@ -76,6 +76,8 @@ export default class CharacteristicsModel {
             break;
           }
         }
+        //make the value 0 if undefined
+        val = val ?? 0
         //if it works, use it
         if(Number.isSafeInteger(val)){
           computedVal += val * step[1];

@@ -12,7 +12,14 @@ export default class SOULActor extends foundry.documents.Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.soul || {};
 
-    systemData.computeStats?.();
+
+    if(systemData.hasStats ?? false){
+      systemData.computeStats?.();
+    }
+    if(systemData.hasCharacteristics ?? false){
+      systemData.computeCharacteristics?.();
+      systemData.clampCharacteristics?.();
+    }
 
     /**
      * Flexible hook for modules to alter derived document data.

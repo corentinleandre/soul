@@ -123,6 +123,27 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
   /* -------------------------------------------------- */
 
+  _configureRenderParts(options){
+    const { header, tabs, stats, characteristics, items, effects }
+      = super._configureRenderParts(options)
+
+    const parts = { header, tabs }
+
+    console.log(parts.header);
+    console.log(parts.tabs);
+
+    if(this.actor.system.hasStats ?? false){
+      parts.stats = stats;
+    }
+    if(this.actor.system.hasCharacteristics ?? false){
+      parts.characteristics = characteristics;
+    }
+
+    return parts;
+  }
+
+  /* -------------------------------------------------- */
+
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
     switch (partId) {
