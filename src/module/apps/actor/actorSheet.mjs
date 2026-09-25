@@ -112,9 +112,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     for(const stat in CONFIG.SOUL.stats){
       stats[stat] = this.actor.system[stat]
       stats[stat].field = this.actor.system.schema.fields[stat].fields.base
-      for(const statConfig in CONFIG.SOUL.stats[stat]){
-        stats[stat][statConfig] = CONFIG.SOUL.stats[stat][statConfig]
-      }
+
+      stats[stat].label = CONFIG.SOUL.stats[stat].label
+      stats[stat].shorthand = CONFIG.SOUL.stats[stat].shorthand
     }
     context.stats = stats;
 
@@ -156,9 +156,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         for(const char in CONFIG.SOUL.characteristics){
           characteristics[char] = this.actor.system[char]
           characteristics[char].field = this.actor.system.schema.fields[char].fields.value
-          for(const charConfig in CONFIG.SOUL.characteristics[char]){
-            characteristics[char][charConfig] = CONFIG.SOUL.characteristics[char][charConfig]
-          }
+
+          characteristics[char].label = CONFIG.SOUL.characteristics[char].label
+          characteristics[char].shorthand = CONFIG.SOUL.characteristics[char].shorthand
         }
         context.characteristics = characteristics;
         break;
