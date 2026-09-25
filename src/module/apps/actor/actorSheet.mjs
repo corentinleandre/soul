@@ -151,13 +151,15 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
-    context.tab = context.tabs[partId];
+
     switch (partId) {
       case "stats":
+        context.tab = context.tabs[partId];
         //Already calculated in header, should be put back here if removed
 
         break;
       case "characteristics":
+        context.tab = context.tabs[partId];
         // clean ? IDK but does exactly what I want
         let characteristics = {}
         for(const char in CONFIG.SOUL.characteristics){
@@ -170,9 +172,11 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         context.characteristics = characteristics;
         break;
       case "effects":
+        context.tab = context.tabs[partId];
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
         break;
       case "items":
+        context.tab = context.tabs[partId];
         context.itemTypes = this._getItems();
         break;
     }
