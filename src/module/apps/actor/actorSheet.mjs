@@ -119,7 +119,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     context.stats = stats;
 
     for(const tab in context.tabs){
-      if(context[tab].active ?? false){
+      if(context.tabs[tab].active ?? false){
         context.tab = context.tabs[tab];
       }
     }
