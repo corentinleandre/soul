@@ -8,12 +8,14 @@ const characteristics = {
   attacks: {
     label: "SOUL.Characteristics.attacks",
     shorthand: "SOUL.Characteristics.Shorthands.attacks",
-    min:[["number", 1]]
+    min:[["number", 1]],
+    base:[["number", 1]]
   },
   fortune: {
     label: "SOUL.Characteristics.fortune",
     shorthand: "SOUL.Characteristics.Shorthands.fortune",
-    min:[["number", 0]]
+    min:[["number", 0]],
+    base:[["number", 0]]
   },
   wounds: {
     label: "SOUL.Characteristics.wounds",
