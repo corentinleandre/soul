@@ -21,11 +21,12 @@
       },
 
       "current": "Current",
+      "value": "Value",
       "max": "Max",
       "maximum": "Maximum",
       "min": "Min",
-      "Minimum": "Minimum",
-      "Base": "Base"
+      "minimum": "Minimum",
+      "base": "Base"
     },
     "Stats": {
       "strength":"Strength",
