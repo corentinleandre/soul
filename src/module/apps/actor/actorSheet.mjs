@@ -118,7 +118,11 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     }
     context.stats = stats;
 
-    console.log(context);
+    for(const tab in context.tabs){
+      if(context[tab].acctive){
+        context.tab = context.tabs[tab];
+      }
+    }
 
     return context;
   }
