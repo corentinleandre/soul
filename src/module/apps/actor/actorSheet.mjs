@@ -151,10 +151,11 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
+    context.tab = context.tabs[partId];
     switch (partId) {
       case "stats":
         //Already calculated in header, should be put back here if removed
-        context.tab = context.tabs[partId];
+
         break;
       case "characteristics":
         // clean ? IDK but does exactly what I want
@@ -167,15 +168,12 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           characteristics[char].shorthand = CONFIG.SOUL.characteristics[char].shorthand
         }
         context.characteristics = characteristics;
-        context.tab = context.tabs[partId];
         break;
       case "effects":
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
-        context.tab = context.tabs[partId];
         break;
       case "items":
         context.itemTypes = this._getItems();
-        context.tab = context.tabs[partId];
         break;
     }
     return context;
