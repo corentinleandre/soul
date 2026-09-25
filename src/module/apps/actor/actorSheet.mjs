@@ -1,5 +1,6 @@
 import { prepareActiveEffectCategories } from "../../helpers/utils.mjs";
 import { systemPath } from "../../constants.mjs";
+import characteristics from "../../config/chara-config.mjs";
 
 const { api, sheets } = foundry.applications;
 
@@ -34,6 +35,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           id: "stats"
         },
         {
+          id: "characteristics"
+        },
+        {
           id: "items",
         },
         {
@@ -57,6 +61,10 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     },
     stats: {
       template: systemPath("templates/actor/stats.hbs"),
+      scrollable: [""],
+    },
+    characteristics: {
+      template: systemPath("templates/actor/characteristics.hbs"),
       scrollable: [""],
     },
     items: {
@@ -119,6 +127,19 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   async _preparePartContext(partId, context) {
     switch (partId) {
       case "stats":
+        //Already calculated in header, should be put back here if removed
+        break;
+      case "characteristics":
+        // clean ? IDK but does exactly what I want
+        let characteristics = {}
+        for(const char in CONFIG.SOUL.characteristics){
+          characteristics[char] = this.actor.system[char]
+          characteristics[char].field = this.actor.system.schema.fields[char].fields.value
+          for(const charConfig in CONFIG.SOUL.characteristics[char]){
+            characteristics[char][charConfig] = CONFIG.SOUL.stats[char][charConfig]
+          }
+        }
+        context.characteristics = characteristics;
         break;
       case "effects":
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());

@@ -19,12 +19,16 @@ export class StatsModel extends SystemDataModel {
     return this.mergeSchema(super.defineSchema(), schema)
   }
 
+  get hasStats(){
+    return true;
+  }
+
   /**
    * Compute all the stats for this stat model
    */
   computeStats(){
     for(const stat in CONFIG.SOUL.stats){
-      this.compute(stat);
+      this.computeStat(stat);
     }
   }
 
@@ -32,21 +36,21 @@ export class StatsModel extends SystemDataModel {
    * A function to compute & update all the value, rawBonus and Bonus of stats
    * @param {String} stat the name of the stat that needs computing/updating
    */
-  compute(stat){
+  computeStat(stat){
     // Dont compute bullshit
     if(!Object.keys(CONFIG.SOUL.stats).includes(stat)){
       return;
     }
-    this._computeValue(stat)
-    this._computeRawBonus(stat)
-    this._computeBonus(stat)
+    this._computeStatValue(stat)
+    this._computeStatRawBonus(stat)
+    this._computeStatBonus(stat)
   }
 
   /**
    * Computes the value of a stat based on it's base, modifiers and advances
    * @param {String} stat the name of the stat that needs computing/updating
    */
-  _computeValue(stat){
+  _computeStatValue(stat){
     const obj = this[stat];
     obj.value = obj.base + obj.modifier + obj.advances;
   }
@@ -55,10 +59,10 @@ export class StatsModel extends SystemDataModel {
    * Computes the raw bonus of a stat based on it's value
    * @param {String} stat the name of the stat that needs computing/updating
    */
-  _computeRawBonus(stat){
+  _computeStatRawBonus(stat){
     const obj = this[stat];
     if(obj.value == null){
-      this._computeValue(stat);
+      this._computeStatValue(stat);
     }
     obj.rawBonus = Math.floor(obj.value / 10);
   }
@@ -67,10 +71,10 @@ export class StatsModel extends SystemDataModel {
    * Computes the bonus of a stat by adding the modifier
    * @param {*} stat the name of the stat that needs computing/updating
    */
-  _computeBonus(stat){
+  _computeStatBonus(stat){
     const obj = this[stat];
     if(obj.rawBonus == null){
-      this._computeRawBonus(stat);
+      this._computeStatRawBonus(stat);
     }
     obj.bonus = obj.rawBonus + obj.bonusMod;
   }

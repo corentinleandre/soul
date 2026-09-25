@@ -1,0 +1,22 @@
+{{! Stats tab}}
+<section class="tab scrollable {{tab.cssClass}}" data-group="primary" data-tab="characteristics">
+  <div class="flexrow">
+    <div class="stats grid grid-5row grid-flow-horizontal grid-align-center">
+      <!-- labels -->
+      <div> </div>
+      <div class="label-black">{{localize 'SOUL.Characteristics.min'}}</div>
+      <div class="label-black">{{localize 'SOUL.Characteristics.max'}}</div>
+      <div class="label-black">{{localize 'SOUL.Characteristics.base'}}</div>
+      <div class="label-black">{{localize 'SOUL.Characteristics.value'}}</div>
+
+      <!-- stats auto -->
+      {{#each characteristics as |char name|}}
+      <div class="label-brown">{{localize char.shorthand}}</div>
+      <div class="soul-tile">{{char.min}}</div>
+      <div class="soul-tile">{{char.max}}</div>
+      <div class="soul-tile">{{char.base}}</div>
+      <div>{{formInput char.field value=char.value}}</div>
+      {{/each}}
+    </div>
+  </div>
+</section>

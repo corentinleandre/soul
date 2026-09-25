@@ -1,5 +1,32 @@
 {
   "SOUL": {
+    "Characteristics":{
+      "stamina":"Stamina",
+      "attacks":"Attacks",
+      "fortune":"Fortune",
+      "wounds":"Wounds",
+      "movement":"Movement",
+      "magic":"Magic",
+      "madness":"Madness",
+      "exhaustion":"Exhaustion",
+      "Shorthands": {
+        "stamina": "Stam",
+        "attacks": "Atts",
+        "fortune": "Fort",
+        "wounds": "Wnds",
+        "movement": "Move",
+        "magic": "Magi",
+        "madness": "Mdns",
+        "exhaustion": "Exhn"
+      },
+
+      "current": "Current",
+      "max": "Max",
+      "maximum": "Maximum",
+      "min": "Min",
+      "Minimum": "Minimum",
+      "Base": "Base"
+    },
     "Stats": {
       "strength":"Strength",
       "dexterity":"Dexterity",
