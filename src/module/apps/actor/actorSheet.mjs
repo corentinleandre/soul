@@ -118,11 +118,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     }
     context.stats = stats;
 
-    for(const tab in context.tabs){
-      if(context.tabs[tab].active ?? false){
-        context.tab = context.tabs[tab];
-      }
-    }
+    console.log(context);
 
     return context;
   }
@@ -158,6 +154,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     switch (partId) {
       case "stats":
         //Already calculated in header, should be put back here if removed
+        context.tab = context.tabs[partId];
         break;
       case "characteristics":
         // clean ? IDK but does exactly what I want
@@ -170,6 +167,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           characteristics[char].shorthand = CONFIG.SOUL.characteristics[char].shorthand
         }
         context.characteristics = characteristics;
+        context.tab = context.tabs[partId];
         break;
       case "effects":
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
