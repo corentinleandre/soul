@@ -139,6 +139,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
       parts.characteristics = characteristics;
     }
 
+    parts.items = items;
+    parts.effects = effects;
+
     return parts;
   }
 
