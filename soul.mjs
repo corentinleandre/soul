@@ -7,18 +7,17 @@ import BaseModel from "./src/module/data/actor/base.mjs";
 // ---- Items
 import Skill from "./src/module/data/item/skill.mjs";
 
-
 // Document imports
-import SOULActiveEffect from "./src/module/documents/_module.mjs";
-import SOULActor from "./src/module/documents/_module.mjs";
-import SOULCard from "./src/module/documents/_module.mjs";
-import SOULCards from "./src/module/documents/_module.mjs";
-import SOULChatMessage from "./src/module/documents/_module.mjs";
-import SOULCombat from "./src/module/documents/_module.mjs";
-import SOULCombatant from "./src/module/documents/_module.mjs";
-import SOULItem from "./src/module/documents/_module.mjs";
-import SOULScene from "./src/module/documents/_module.mjs";
-import SOULUser from "./src/module/documents/_module.mjs";
+import SOULActiveEffect from "./src/module/documents/SOULActiveEffect.mjs";
+import SOULActor from "./src/module/documents/SOULActor.mjs";
+import SOULCard from "./src/module/documents/SOULCard.mjs";
+import SOULCards from "./src/module/documents/SOULCards.mjs";
+import SOULChatMessage from "./src/module/documents/SOULChatMessage.mjs";
+import SOULCombat from "./src/module/documents/SOULCombat.mjs";
+import SOULCombatant from "./src/module/documents/SOULCombatant.mjs";
+import SOULItem from "./src/module/documents/SOULItem.mjs";
+import SOULScene from "./src/module/documents/SOULScene.mjs";
+import SOULUser from "./src/module/documents/SOULUser.mjs";
 
 import SOUL from "./src/module/config.mjs";
 import { localizeHelper } from "./src/module/helpers/utils.mjs";
