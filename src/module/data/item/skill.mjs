@@ -1,9 +1,11 @@
+import ItemDataModel from "../abstract/item-data-model.mjs"
+
 const { SchemaField, NumberField, StringField } = foundry.data.fields;
 
 /**
  * Simple data model for base creatures as a type of actor.
  */
-export default class Skill extends foundry.abstract.TypeDataModel {
+export default class Skill extends ItemDataModel {
   /** @inheritdoc */
   static LOCALIZATION_PREFIXES = ["SOUL.Skill"];
 

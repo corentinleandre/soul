@@ -8,6 +8,6 @@ import SystemDataModel from "./system-data-model.mjs";
 /**
  * Specialized Data class for items
  */
-export default class ItemDataMode extends SystemDataModel {
+export default class ItemDataModel extends SystemDataModel {
 
 }
