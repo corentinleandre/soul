@@ -49,9 +49,10 @@
   "secondaryTokenAttribute": "",
   "documentTypes": {
     "Actor": {
-      "token": {},
-      "chess": {},
       "basechar": {}
+    },
+    "Item": {
+      "skill": {}
     },
     "Combatant": {
       "player": {}
