@@ -15,9 +15,30 @@ export default class Skill extends foundry.abstract.TypeDataModel {
       ...super.defineSchema(),
       description: new StringField({initial:"Description here"}),
       level: new NumberField({required: true, integer: true, min: -1, initial: -1}),
-      maxlevel: new NumberField({required: true, integer:true, min: -1, initial: -1}),
-      maxmod: new NumberField({integer:true}),
-      stat: new StringField({required:true, choices:CONFIG.SOUL.skills})
+      maxLevel: new NumberField({required: true, integer:true, min: -1, initial: -1}),
+      maxMod: new NumberField({integer:true}),
+      stat: new StringField({required:true, choices:CONFIG.SOUL.stats}),
+      modifier: new NumberField({integer: true, initial:0})
+    }
+  }
+
+  get isSkill() {
+    return true;
+  }
+
+  get isTrained(){
+    return this.level > -1;
+  }
+
+  resetModifier(){
+    this.modifier = 0;
+  }
+
+  getSkillValue(stat){
+    if(this.isTrained){
+      return stat + (this.level*10);
+    }else{
+      return stat/2;
     }
   }
 }
