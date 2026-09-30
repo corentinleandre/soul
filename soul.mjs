@@ -1,21 +1,55 @@
+// Sheet imports
 import * as apps from "./src/module/apps/_module.mjs";
-import * as dataModels from "./src/module/data/_module.mjs";
-import * as documents from "./src/module/documents/_module.mjs";
+
+// DataModel imports
+// ---- Actors
+import BaseModel from "./src/module/data/actor/base.mjs";
+// ---- Items
+import Skill from "./src/module/data/item/skill.mjs";
+
+
+// Document imports
+import SOULActiveEffect from "./src/module/documents/_module.mjs";
+import SOULActor from "./src/module/documents/_module.mjs";
+import SOULCard from "./src/module/documents/_module.mjs";
+import SOULCards from "./src/module/documents/_module.mjs";
+import SOULChatMessage from "./src/module/documents/_module.mjs";
+import SOULCombat from "./src/module/documents/_module.mjs";
+import SOULCombatant from "./src/module/documents/_module.mjs";
+import SOULItem from "./src/module/documents/_module.mjs";
+import SOULScene from "./src/module/documents/_module.mjs";
+import SOULUser from "./src/module/documents/_module.mjs";
+
 import SOUL from "./src/module/config.mjs";
 import { localizeHelper } from "./src/module/helpers/utils.mjs";
+
+/* -------------------------------------------- */
+/*  Foundry VTT Initialization                  */
+/* -------------------------------------------- */
 
 Hooks.once("init", () => {
   CONFIG.SOUL = SOUL;
 
   // Assign document classes
-  for (const docCls of Object.values(documents)) {
-    CONFIG[docCls.documentName].documentClass = docCls;
-  }
+  CONFIG.ActiveEffect.documentClass = SOULActiveEffect;
+  CONFIG.Actor.documentClass = SOULActor;
+  CONFIG.Card.documentClass = SOULCard;
+  CONFIG.Cards.documentClass = SOULCards;
+  CONFIG.ChatMessage.documentClass = SOULChatMessage;
+  CONFIG.Combat.documentClass = SOULCombat;
+  CONFIG.Combatant.documentClass = SOULCombatant;
+  CONFIG.Item.documentClass = SOULItem;
+  CONFIG.Scene.documentClass = SOULScene;
+  CONFIG.User.documentClass = SOULUser;
 
-  Object.assign(CONFIG.Actor.dataModels, dataModels.Actor.config);
+  CONFIG.Actor.defaultType = "Basechar";
+
+  // Assign DataModels
+  CONFIG.Actor.dataModels["Basechar"] = BaseModel;
+
+  CONFIG.Item.dataModels["skill"] = Skill;
+
   Object.assign(CONFIG.Combatant.dataModels, dataModels.Combatant.config);
-
-  CONFIG.Actor.defaultType = "token";
 
   // Document Sheets
   foundry.documents.collections.Actors.registerSheet("soul", apps.Actor.SOULActorSheet, {
