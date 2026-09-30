@@ -131,9 +131,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
     const parts = { header, tabs }
 
-    console.log(parts.header);
-    console.log(parts.tabs);
-
     if(this.actor.system.hasStats ?? false){
       parts.stats = stats;
     }
