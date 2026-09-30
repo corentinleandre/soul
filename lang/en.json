@@ -55,36 +55,9 @@
       "rawBonus":"Raw Bonus",
       "total":"Total"
     },
-    "Chess": {
-      "Pieces": {
-        "P": "Pawn",
-        "N": "Knight",
-        "B": "Bishop",
-        "R": "Rook",
-        "Q": "Queen",
-        "K": "King"
-      },
-      "FIELDS": {
-        "piece": {
-          "label": "Piece"
-        }
-      }
-    },
-    "GameToken": {
-      "FIELDS": {
-        "count": {
-          "label": "Count"
-        },
-        "resource": {
-          "label": "Resource",
-          "value": {
-            "label": "Value"
-          },
-          "max": {
-            "label": "Max"
-          }
-        }
-      }
+    "Skills":{
+      "charm":"Charm",
+      "row":"Row"
     },
     "Sheets": {
       "Labels": {
@@ -119,9 +92,10 @@
   },
   "TYPES": {
     "Actor": {
-      "chess": "Chess Piece",
-      "token": "Game Token",
       "basecreature":"Base Creature"
+    },
+    "Item": {
+      "skill":"Skill"
     },
     "Combatant": {
       "player": "Player"
