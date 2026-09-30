@@ -6,6 +6,8 @@ import * as apps from "./src/module/apps/_module.mjs";
 import BaseModel from "./src/module/data/actor/base.mjs";
 // ---- Items
 import Skill from "./src/module/data/item/skill.mjs";
+// ---- Comabatant
+import Player from "./src/module/data/combatant/player.mjs";
 
 // Document imports
 import SOULActiveEffect from "./src/module/documents/SOULActiveEffect.mjs";
@@ -44,11 +46,14 @@ Hooks.once("init", () => {
   CONFIG.Actor.defaultType = "Basechar";
 
   // Assign DataModels
+  // ---- Actors
   CONFIG.Actor.dataModels["Basechar"] = BaseModel;
 
+  // ---- Items
   CONFIG.Item.dataModels["skill"] = Skill;
 
-  Object.assign(CONFIG.Combatant.dataModels, dataModels.Combatant.config);
+  // ---- Combatants
+  CONFIG.Combatant.dataModels["player"] = Player;
 
   // Document Sheets
   foundry.documents.collections.Actors.registerSheet("soul", apps.Actor.SOULActorSheet, {
