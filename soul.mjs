@@ -43,11 +43,11 @@ Hooks.once("init", () => {
   CONFIG.Scene.documentClass = SOULScene;
   CONFIG.User.documentClass = SOULUser;
 
-  CONFIG.Actor.defaultType = "Basechar";
+  CONFIG.Actor.defaultType = "basechar";
 
   // Assign DataModels
   // ---- Actors
-  CONFIG.Actor.dataModels["Basechar"] = BaseModel;
+  CONFIG.Actor.dataModels["basechar"] = BaseModel;
 
   // ---- Items
   CONFIG.Item.dataModels["skill"] = Skill;
