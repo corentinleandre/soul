@@ -135,13 +135,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
     if(this.actor.system.hasStats ?? false){
       parts.stats = stats;
-    }else{
-      delete tabs.stat;
     }
     if(this.actor.system.hasCharacteristics ?? false){
       parts.characteristics = characteristics;
-    }else{
-      delete tabs.characteristics;
     }
 
     parts.items = items;
@@ -154,6 +150,8 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
+    console.log(partId);
+    console.log(context);
 
     switch (partId) {
       case "stats":
