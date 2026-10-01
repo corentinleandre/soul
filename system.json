@@ -38,12 +38,12 @@
   "manifest": "https://github.com/corentinleandre/soul/releases/latest/download/system.json",
   "download": "AUTOMATIC",
   "background": "",
-  "initiative": "1d8",
+  "initiative": "@agility.value + 1d8",
   "grid": {
     "type": 1,
     "distance": 2,
     "units": "m",
-    "diagonals": 0
+    "diagonals": 1
   },
   "primaryTokenAttribute": "value",
   "secondaryTokenAttribute": "",
