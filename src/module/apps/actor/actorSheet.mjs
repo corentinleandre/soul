@@ -44,7 +44,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           id: "effects",
         },
       ],
-      initial: "stats",
+      initial: "items",
       labelPrefix: "SOUL.Sheets.Tabs",
     },
   };
@@ -57,7 +57,11 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
       template: systemPath("templates/actor/header.hbs"),
     },
     tabs: {
-      template: "templates/generic/tab-navigation.hbs",
+      template: systemPath("templates/shared/tab-navigation.hbs"),
+    },
+    items: {
+      template: systemPath("templates/actor/items.hbs"),
+      scrollable: [""],
     },
     stats: {
       template: systemPath("templates/actor/stats.hbs"),
@@ -65,10 +69,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     },
     characteristics: {
       template: systemPath("templates/actor/characteristics.hbs"),
-      scrollable: [""],
-    },
-    items: {
-      template: systemPath("templates/actor/items.hbs"),
       scrollable: [""],
     },
     effects: {
@@ -131,11 +131,17 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
     const parts = { header, tabs }
 
+    console.log(tabs);
+
     if(this.actor.system.hasStats ?? false){
       parts.stats = stats;
+    }else{
+      delete tabs.stat;
     }
     if(this.actor.system.hasCharacteristics ?? false){
       parts.characteristics = characteristics;
+    }else{
+      delete tabs.characteristics;
     }
 
     parts.items = items;
