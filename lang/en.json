@@ -69,7 +69,8 @@
     "Sheets": {
       "Labels": {
         "ActorSheet": "Default SOUL Actor Sheet",
-        "ItemSheet": "Default SOUL Item Sheet"
+        "itemSheet": "Default SOUL Item Sheet",
+        "skillSheet": "Default SOUL Skill Sheet"
       },
       "Tabs": {
         "stats": "Stats",
