@@ -49,7 +49,7 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
     },
     tabs: {
       // Foundry-provided generic template
-      template: "templates/generic/tab-navigation.hbs",
+      template: systemPath("templates/generic/tab-navigation.hbs"),
     },
     effects: {
       template: systemPath("templates/shared/effects.hbs"),
