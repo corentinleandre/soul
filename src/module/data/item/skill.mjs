@@ -24,12 +24,37 @@ export default class Skill extends ItemDataModel {
     }
   }
 
+  /* -------------------------------------------- */
+  /*  Inherited from ItemDatalModel               */
+  /* -------------------------------------------- */
+
+  /**
+   *  @inheritdoc
+   */
+  updateItem(actor){
+    console.log("updating Skill of actor")
+    console.log(actor)
+    this.statValue = actor.system[this.stat];
+    this.value = this.getSkillValue(this.statValue);
+  }
+
+  /**
+   * @inheritdoc
+   */
+  computeItem(){
+    console.log("computing Skill")
+  }
+
   get isSkill() {
     return true;
   }
 
   get isTrained(){
     return this.level > -1;
+  }
+
+  get skillValue(){
+    return this.getSkillValue(this.statValue);
   }
 
   resetModifier(){
@@ -43,4 +68,5 @@ export default class Skill extends ItemDataModel {
       return stat/2;
     }
   }
+
 }
