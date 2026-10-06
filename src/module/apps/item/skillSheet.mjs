@@ -4,9 +4,9 @@ import { systemPath } from "../../constants.mjs";
 const { api, sheets } = foundry.applications;
 
 /**
- * Extend the basic ItemSheet with some very simple modifications.
+ * Extend the basic SkillSheet with some very simple modifications.
  */
-export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSheet) {
+export class SOULSkillSheet extends api.HandlebarsApplicationMixin(sheets.ItemSheet) {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     position: {
