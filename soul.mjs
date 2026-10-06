@@ -1,5 +1,10 @@
 // Sheet imports
 import * as apps from "./src/module/apps/_module.mjs";
+// ---- Actors
+import { SOULActorSheet } from "./src/module/apps/actor/actorSheet.mjs";
+// ---- Items
+import { SOULItemSheet } from "./src/module/apps/item/itemSheet.mjs";
+import { SOULSkillSheet } from "./src/module/apps/item/skillSheet.mjs";
 
 // DataModel imports
 // ---- Actors
@@ -55,13 +60,23 @@ Hooks.once("init", () => {
   // ---- Combatants
   CONFIG.Combatant.dataModels["player"] = Player;
 
-  // Document Sheets
-  foundry.documents.collections.Actors.registerSheet("soul", apps.Actor.SOULActorSheet, {
-    makeDefault: true, label: "SOUL.Sheets.Labels.ActorSheet",
-  });
-  foundry.documents.collections.Items.registerSheet("soul", apps.Item.SOULItemSheet, {
-    makeDefault: true, label: "SOUL.Sheets.Labels.ItemSheet",
-  });
+  // Register sheet application classes
+  const {DocumentSheetConfig} = foundry.applications.apps;
+  const actorClass = CONFIG.Actor.documentClass;
+  const itemClass = CONFIG.Item.documentClass;
+
+  // ---- Actor
+  DocumentSheetConfig.registerSheet(actorClass, "soul", SOULActorSheet, {
+    makeDefault:true, label: "SOUL.Sheets.Labels.actorSheet"
+  })
+
+  // ---- Items
+  DocumentSheetConfig.registerSheet(itemClass, "soul", SOULItemSheet, {
+    makeDefault: true, label: "SOUL.Sheets.Labels.itemSheet"
+  })
+  DocumentSheetConfig.registerSheet(itemClass, "soul", SOULSkillSheet, {
+    types : ["skill"], makeDefault: true, label: "SOUL.Sheets.Labels.skillSheet"
+  })
 
   // Sidebar tabs
   CONFIG.ui.combat = apps.Combat.SOULCombatTracker;
