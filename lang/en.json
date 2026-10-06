@@ -57,7 +57,14 @@
     },
     "Skills":{
       "charm":"Charm",
-      "row":"Row"
+      "row":"Row",
+
+      "description":"Description",
+      "level": "Level",
+      "maxLevel":"Max Level",
+      "maxMod": "Max Lvl Mod",
+      "stat":"Stat",
+      "modifier":"Modifier"
     },
     "Sheets": {
       "Labels": {
@@ -68,7 +75,9 @@
         "stats": "Stats",
         "items": "Items",
         "effects": "Effects",
-        "characteristics":"Characteristics"
+        "characteristics":"Characteristics",
+
+        "details":"Details"
       }
     },
     "Combat": {
