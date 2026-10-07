@@ -80,6 +80,7 @@ export class SOULSkillSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
       item: this.item,
       actor: this.actor,
       system: this.item.system,
+      systemFields: this.item.system.fields,
       flags: this.item.flags,
       itemFields: this.item.schema.fields,
       config: CONFIG,
@@ -101,46 +102,6 @@ export class SOULSkillSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
         break;
     }
     return context;
-  }
-
-  /* -------------------------------------------------- */
-
-  /**
-   * Handles the system fields for the form-fields generic.
-   */
-  async _getFields() {
-    const doc = this.item;
-    const source = doc._source;
-    const systemFields = CONFIG.Item.dataModels[doc.type]?.schema.fields;
-    const fieldSets = [];
-    // TODO: Find a clever way to handle enrichment
-    for (const field of Object.values(systemFields ?? {})) {
-      const path = `system.${field.name}`;
-      if (field instanceof foundry.data.fields.SchemaField) {
-        const fieldset = { fieldset: true, legend: field.label, fields: [] };
-        await this.#addSystemFields(fieldset, field.fields, source, path);
-        fieldSets.push(fieldset);
-      } else {
-        fieldSets.push({ outer: { field, value: foundry.utils.getProperty(source, path) } });
-      }
-    }
-    return fieldSets;
-  }
-
-  /* -------------------------------------------------- */
-
-  /**
-   * Recursively add system model fields to the fieldset.
-   */
-  async #addSystemFields(fieldset, schema, source, _path = "system") {
-    for (const field of Object.values(schema)) {
-      const path = `${_path}.${field.name}`;
-      if (field instanceof foundry.data.fields.SchemaField) {
-        this.#addSystemFields(fieldset, field.fields, source, path);
-      } else if (field.constructor.hasFormSupport) {
-        fieldset.fields.push({ field, value: foundry.utils.getProperty(source, path) });
-      }
-    }
   }
 
   /* -------------------------------------------------- */
