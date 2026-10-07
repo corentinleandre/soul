@@ -18,7 +18,7 @@ export default class Skill extends ItemDataModel {
       description: new StringField({initial:"Description here"}),
       level: new NumberField({required: true, integer: true, min: -1, initial: -1}),
       maxLevel: new NumberField({required: true, integer:true, min: -1, initial: -1}),
-      maxMod: new NumberField({integer:true}),
+      maxMod: new NumberField({integer:true, initial:0}),
       stat: new StringField({required:true, choices:CONFIG.SOUL.stats, initial:"intelligence"}),
       modifier: new NumberField({integer: true, initial:0})
     }
