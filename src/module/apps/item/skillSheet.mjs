@@ -85,6 +85,8 @@ export class SOULSkillSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
       config: CONFIG,
     });
 
+    console.log(context);
+
     return context;
   }
 
