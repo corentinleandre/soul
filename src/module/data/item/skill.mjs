@@ -3,7 +3,7 @@ import ItemDataModel from "../abstract/item-data-model.mjs"
 const { SchemaField, NumberField, StringField } = foundry.data.fields;
 
 /**
- * Simple data model for base creatures as a type of actor.
+ * Simple data model for skills as items.
  */
 export default class Skill extends ItemDataModel {
   /** @inheritdoc */
