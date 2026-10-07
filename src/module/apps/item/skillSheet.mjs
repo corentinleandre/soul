@@ -80,7 +80,7 @@ export class SOULSkillSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
       item: this.item,
       actor: this.actor,
       system: this.item.system,
-      systemFields: this.item.system.fields,
+      systemFields: this.item.system.schema.fields,
       flags: this.item.flags,
       itemFields: this.item.schema.fields,
       config: CONFIG,
