@@ -96,8 +96,7 @@ export class SOULSkillSheet extends api.HandlebarsApplicationMixin(sheets.ItemSh
   async _preparePartContext(partId, context) {
     // TODO: Come up with clever way to automatically handle enriching HTML fields
     switch (partId) {
-      case "effects":
-        context.effects = prepareActiveEffectCategories(this.item.effects);
+      case "details":
         context.tab = context.tabs[partId];
         break;
     }
