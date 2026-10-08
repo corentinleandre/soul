@@ -32,6 +32,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     primary: {
       tabs: [
         {
+          id:"skills"
+        },
+        {
           id: "stats"
         },
         {
@@ -44,7 +47,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           id: "effects",
         },
       ],
-      initial: "items",
+      initial: "skills",
       labelPrefix: "SOUL.Sheets.Tabs",
     },
   };
@@ -58,6 +61,10 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     },
     tabs: {
       template: systemPath("templates/shared/tab-navigation.hbs"),
+    },
+    skills: {
+      template: systemPath("templates/actor/skills.hbs"),
+      scrollable: [""],
     },
     items: {
       template: systemPath("templates/actor/items.hbs"),
@@ -118,6 +125,9 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     }
     context.stats = stats;
 
+    //prepare wether tabs should be present in menu
+
+
     console.log(context);
 
     return context;
@@ -154,6 +164,18 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     console.log(context);
 
     switch (partId) {
+      case "skills":
+        let skills = {}
+
+        for(const skill of actor.itemTypes["skill"]){
+          skills[skill.name] = skill;
+          skills[skill.name].fields = skill.system.schema.fields;
+
+          skills[skill.name].label = CONFIG.SOUL.skills[skill.name].label ?? skill.name;
+          skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.stat].label;
+        }
+        context.tab = context.tabs[partId]
+        break;
       case "stats":
         context.tab = context.tabs[partId];
         //Already calculated in header, should be put back here if removed
