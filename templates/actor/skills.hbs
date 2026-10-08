@@ -14,10 +14,10 @@
       {{#each skills as |skill name|}}
       <div class="label-black">{{localize skill.label}}</div>
       <div class="soul-tile">{{localize skill.statLabel}}</div>
-      <div class="soul-tile">{{skill.level}}</div>
-      <div class="soul-tile">{{skill.maxLevel}}</div>
-      <div>{{formInput skill.fields.modifier value=skill.modifier}}</div>
-      <div class="soul-tile">{{skill.value}}</div>
+      <div class="soul-tile">{{skill.system.level}}</div>
+      <div class="soul-tile">{{skill.system.maxLevel}}</div>
+      <div>{{formInput skill.fields.modifier value=skill.system.modifier}}</div>
+      <div class="soul-tile">{{skill.system.value}}</div>
       {{/each}}
     </div>
   </div>
