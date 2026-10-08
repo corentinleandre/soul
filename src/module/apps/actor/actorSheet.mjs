@@ -136,7 +136,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   /* -------------------------------------------------- */
 
   _configureRenderParts(options){
-    const { header, tabs, stats, characteristics, items, effects }
+    const { header, tabs, skills, stats, characteristics, items, effects }
       = super._configureRenderParts(options)
 
     const parts = { header, tabs }
@@ -150,6 +150,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
       parts.characteristics = characteristics;
     }
 
+    parts.skills = skills;
     parts.items = items;
     parts.effects = effects;
 
@@ -174,6 +175,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           skills[skill.name].label = CONFIG.SOUL.skills[skill.name].label ?? skill.name;
           skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.stat].label;
         }
+        context.skills = skills;
         context.tab = context.tabs[partId]
         break;
       case "stats":

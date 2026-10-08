@@ -75,6 +75,7 @@
         "skillSheet": "Default SOUL Skill Sheet"
       },
       "Tabs": {
+        "skills": "Skills",
         "stats": "Stats",
         "items": "Items",
         "effects": "Effects",
