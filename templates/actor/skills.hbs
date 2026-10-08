@@ -3,7 +3,7 @@
   <div class="flexrow">
     <div class="skills grid grid-8col grid-align-center">
       <!-- labels -->
-      <div class="label-brown grid-span-r3">{{localize 'SOUL.Skills.name'}}</div>
+      <div class="label-brown grid-span-c3">{{localize 'SOUL.Skills.name'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.stat'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.level'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.maxLevel'}}</div>
@@ -12,7 +12,7 @@
 
       <!-- stats auto -->
       {{#each skills as |skill name|}}
-      <div class="label-black grid-span-r3">{{localize skill.label}}</div>
+      <div class="label-black grid-span-c3">{{localize skill.label}}</div>
       <div class="soul-tile">{{localize skill.statLabel}}</div>
       <div class="soul-tile">{{skill.system.level}}</div>
       <div class="soul-tile">{{skill.system.maxLevel}}</div>
