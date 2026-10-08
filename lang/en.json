@@ -64,7 +64,9 @@
       "maxLevel":"Max Level",
       "maxMod": "Max Lvl Mod",
       "stat":"Stat",
-      "modifier":"Modifier"
+      "modifier":"Modifier",
+      "name": "Name",
+      "total":"Total"
     },
     "Sheets": {
       "Labels": {
