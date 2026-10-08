@@ -34,7 +34,7 @@ export default class Skill extends ItemDataModel {
   updateItem(actor){
     console.log("updating Skill of actor")
     console.log(actor)
-    this.statValue = actor.system[this.stat] ?? 0;
+    this.statValue = actor.system[this.stat]?.value ?? 0;
     this.value = this.getSkillValue(this.statValue);
   }
 
