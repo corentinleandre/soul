@@ -13,7 +13,7 @@ export default class SOULActor extends foundry.documents.Actor {
     const flags = actorData.flags.soul || {};
 
     //Item ascending information
-    for(const item of this.actor.items){
+    for(const item of this.items){
       if(item.system.hasAscending?.() ?? false){
         this.receiveAscending(item.system.ascend())
       }
@@ -30,7 +30,7 @@ export default class SOULActor extends foundry.documents.Actor {
 
     //Item descending information
     const descentClone = structuredClone(this);
-    for(const item of this.actor.items){
+    for(const item of this.items){
       if(item.system.hasDescending?.() ?? false){
         item.system.descend(descentClone);
       }
