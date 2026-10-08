@@ -1,11 +1,12 @@
 import ItemDataModel from "../abstract/item-data-model.mjs"
+import Descending from "./components/abstract/descending.mjs"
 
 const { SchemaField, NumberField, StringField } = foundry.data.fields;
 
 /**
  * Simple data model for skills as items.
  */
-export default class Skill extends ItemDataModel {
+export default class Skill extends ItemDataModel.mixin(Descending) {
   /** @inheritdoc */
   static LOCALIZATION_PREFIXES = ["SOUL.Skill"];
 
@@ -28,21 +29,10 @@ export default class Skill extends ItemDataModel {
   /*  Inherited from ItemDatalModel               */
   /* -------------------------------------------- */
 
-  /**
-   *  @inheritdoc
-   */
-  updateItem(actor){
-    console.log("updating Skill of actor")
-    console.log(actor)
+  /** @inheritdoc */
+  descend(actor){
     this.statValue = actor.system[this.stat]?.value ?? 0;
     this.value = this.getSkillValue(this.statValue);
-  }
-
-  /**
-   * @inheritdoc
-   */
-  computeItem(){
-    console.log("computing Skill")
   }
 
   get isSkill() {
