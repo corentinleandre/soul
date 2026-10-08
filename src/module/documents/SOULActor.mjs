@@ -29,10 +29,11 @@ export default class SOULActor extends foundry.documents.Actor {
     }
 
     //Item descending information
-    const descentClone = structuredClone(this);
+    // TODO : make shit so that a copy of the actor is passed down
     for(const item of this.items){
       if(item.system.hasDescending?.() ?? false){
-        item.system.descend(descentClone);
+        // TODO : Pass a copy of actor instead of itself
+        item.system.descend(this);
       }
     }
 
