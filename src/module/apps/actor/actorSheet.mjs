@@ -168,7 +168,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
       case "skills":
         let skills = {}
 
-        for(const skill of actor.itemTypes["skill"]){
+        for(const skill of this.actor.itemTypes["skill"]){
           skills[skill.name] = skill;
           skills[skill.name].fields = skill.system.schema.fields;
 
