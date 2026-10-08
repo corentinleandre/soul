@@ -12,7 +12,14 @@ export default class SOULActor extends foundry.documents.Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.soul || {};
 
+    //Item ascending information
+    for(const item of this.actor.items){
+      if(item.system.hasAscending?.() ?? false){
+        this.receiveAscending(item.system.ascend())
+      }
+    }
 
+    //computations with all the information
     if(systemData.hasStats ?? false){
       systemData.computeStats?.();
     }
@@ -21,10 +28,22 @@ export default class SOULActor extends foundry.documents.Actor {
       systemData.clampCharacteristics?.();
     }
 
+    //Item descending information
+    const descentClone = structuredClone(this);
+    for(const item of this.actor.items){
+      if(item.system.hasDescending?.() ?? false){
+        item.system.descend(descentClone);
+      }
+    }
+
     /**
      * Flexible hook for modules to alter derived document data.
      * @param {SOULActor} actor      The actor preparing derived data.
      */
     Hooks.callAll("SOUL.prepareActorData", this);
+  }
+
+  receiveAscending(itemModel){
+
   }
 }
