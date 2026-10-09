@@ -11,19 +11,11 @@ import SystemDataModel from "./system-data-model.mjs";
 export default class ItemDataModel extends SystemDataModel {
 
   /**
-   * Descending Method called by the SOULItem class when deriving data
-   * @param {Actor} actor the actor
+   * Metadata that describes this DataModel
+   * @type { ItemDataModelMetadata }
    */
-  updateItem(actor){
-
-  }
-
-  /**
-   * Method called by the SOULItem class when deriving data
-   * Used to compute internal data
-   */
-  computeItem(){
-
-  }
+  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+    physical: false
+  }, { inplace: false }));
 
 }
