@@ -15,7 +15,7 @@ export default class Ascending extends SystemDataModel {
    * @returns the item model clone
    */
   ascend(){
-    return structuredClone(this);
+    return this;
   }
 
 }
