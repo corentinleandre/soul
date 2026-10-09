@@ -31,6 +31,8 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
 
   /** @inheritdoc */
   descend(actor){
+    console.log("receiving actor")
+    console.log(actor)
     this.statValue = actor.system[this.stat]?.value ?? 0;
     this.value = this.getSkillValue(this.statValue);
   }
