@@ -101,8 +101,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
 
-    console.log(this.actor);
-
     Object.assign(context, {
       owner: this.document.isOwner,
       limited: this.document.limited,
@@ -127,8 +125,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
     //prepare wether tabs should be present in menu
 
-
-    console.log(context);
 
     return context;
   }
