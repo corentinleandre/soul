@@ -10,8 +10,12 @@ import SystemDataModel from "./system-data-model.mjs";
  */
 export default class ActorDataMode extends SystemDataModel {
 
-  static metadata = Object.freeze({
+  /**
+   * Metadata that describes this DataModel
+   * @type { ActorDataModelMetadata }
+   */
+  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
     scarrable: false
-  });
+  }, { inplace: false }));
 
 }
