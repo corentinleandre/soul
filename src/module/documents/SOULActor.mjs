@@ -14,7 +14,7 @@ export default class SOULActor extends foundry.documents.Actor {
 
     //Item ascending information
     for(const item of this.items){
-      if(item.system.hasAscending?.() ?? false){
+      if(item.system.hasAscending ?? false){
         this.receiveAscending(item.system.ascend())
       }
     }
@@ -30,7 +30,7 @@ export default class SOULActor extends foundry.documents.Actor {
 
     //Item descending information
     for(const item of this.items){
-      if(item.system.hasDescending?.() ?? false){
+      if(item.system.hasDescending ?? false){
         item.system.descend(this);
       }
     }

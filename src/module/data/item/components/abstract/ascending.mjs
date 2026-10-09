@@ -6,7 +6,7 @@ import SystemDataModel from "../../../abstract/system-data-model.mjs";
  */
 export default class Ascending extends SystemDataModel {
 
-  get hasAscendingInfo(){
+  get hasAscending(){
     return true;
   }
 
