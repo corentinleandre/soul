@@ -57,7 +57,7 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
     if(this.isTrained){
       return stat + (this.level*10);
     }else{
-      return stat/2;
+      return Math.ceil(stat/2);
     }
   }
 
