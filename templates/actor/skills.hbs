@@ -1,9 +1,9 @@
 {{! Skills tab}}
-<section class="tab scrollable {{tab.cssClass}}" data-group="primary" data-tab="skills">
+<section class="tab scrollable {{tab.cssClass}} skills" data-group="primary" data-tab="skills">
   <div class="flexrow">
     {{#each skillTypes as |skillType|}}
     <div class="">{{localize skillType.label}}</div>
-    <div class="skills grid grid-7col grid-align-center">
+    <div class="grid grid-7col grid-align-center">
       <!-- labels -->
       <div class="label-brown grid-span-c2">{{localize 'SOUL.Skills.name'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.stat'}}</div>
@@ -14,7 +14,7 @@
 
       <!-- stats auto -->
       {{#each skillTypes.values as |skill skillName|}}
-      <div class="label-black grid-span-c2">{{localize skill.label}}</div>
+      <div class="grid-span-c2">{{localize skill.label}}</div>
       <div class="soul-tile">{{localize skill.statLabel}}</div>
       <div class="soul-tile">{{skill.system.level}}</div>
       <div class="soul-tile">{{skill.system.maxLevel}}</div>
