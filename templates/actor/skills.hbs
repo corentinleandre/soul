@@ -3,9 +3,9 @@
   <div class="flexcol">
     {{#each skillTypes as |skillType|}}
     <div class="">{{localize skillType.label}}</div>
-    <div class="grid grid-7col grid-align-center">
+    <div class="grid grid-9col grid-align-center">
       <!-- labels -->
-      <div class="label-brown grid-span-c2">{{localize 'SOUL.Skills.name'}}</div>
+      <div class="label-brown grid-span-c4">{{localize 'SOUL.Skills.name'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.stat'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.level'}}</div>
       <div class="label-brown">{{localize 'SOUL.Skills.maxLevel'}}</div>
@@ -14,11 +14,11 @@
 
       <!-- stats auto -->
       {{#each skillType.values as |skill skillName|}}
-      <div class="grid-span-c2">{{localize skill.label}}</div>
-      <div class="soul-tile">{{localize skill.statLabel}}</div>
+      <div class="grid-span-c4">{{localize skill.label}}</div>
+      <div class="">({{localize skill.statLabel}})</div>
       <div class="soul-tile">{{skill.system.level}}</div>
       <div class="soul-tile">{{skill.system.maxLevel}}</div>
-      <div>{{formInput skill.fields.modifier value=skill.system.modifier}}</div>
+      <div class="soul-tile">{{skill.system.modifier}}</div>
       <div class="soul-tile">{{skill.system.value}}</div>
       {{/each}}
     </div>
