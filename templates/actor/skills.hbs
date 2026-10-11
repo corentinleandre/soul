@@ -13,7 +13,7 @@
       <div class="label-brown">{{localize 'SOUL.Skills.total'}}</div>
 
       <!-- stats auto -->
-      {{#each skillTypes.values as |skill skillName|}}
+      {{#each skillType.values as |skill skillName|}}
       <div class="grid-span-c2">{{localize skill.label}}</div>
       <div class="soul-tile">{{localize skill.statLabel}}</div>
       <div class="soul-tile">{{skill.system.level}}</div>
