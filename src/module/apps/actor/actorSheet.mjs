@@ -175,7 +175,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
 
           if(skillTypes[skill.schema.type] == undefined){
             skillTypes[skill.schema.type] = {
-              value: {},
+              values: {},
               label: "SOUL.Skills." + skill.schema.type
             }
           }
