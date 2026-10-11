@@ -173,18 +173,18 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           skills[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
           skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
 
-          if(skillTypes[skill.schema.type] == undefined){
-            skillTypes[skill.schema.type] = {
+          if(skillTypes[skill.system.type] == undefined){
+            skillTypes[skill.system.type] = {
               values: {},
-              label: "SOUL.Skills." + skill.schema.type
+              label: "SOUL.Skills." + skill.system.type
             }
           }
 
-          skillTypes[skill.schema.type].values[skill.name] = skill;
-          skillTypes[skill.schema.type].values[skill.name].fields = skill.system.schema.fields;
+          skillTypes[skill.system.type].values[skill.name] = skill;
+          skillTypes[skill.system.type].values[skill.name].fields = skill.system.schema.fields;
 
-          skillTypes[skill.schema.type].values[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
-          skillTypes[skill.schema.type].values[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
+          skillTypes[skill.system.type].values[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
+          skillTypes[skill.system.type].values[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
         }
         context.skills = skills;
         context.skillTypes = skillTypes;
