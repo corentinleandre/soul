@@ -187,7 +187,7 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           skillTypes[skill.schema.type].values[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
         }
         context.skills = skills;
-        context.skillTypes = skills;
+        context.skillTypes = skillTypes;
 
         context.tab = context.tabs[partId]
         break;
