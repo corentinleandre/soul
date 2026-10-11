@@ -163,15 +163,30 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     switch (partId) {
       case "skills":
         let skills = {}
+        let skillTypes = {}
 
+        //load skills with information
         for(const skill of this.actor.itemTypes["skill"]){
           skills[skill.name] = skill;
           skills[skill.name].fields = skill.system.schema.fields;
 
           skills[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
-          skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.label ?? skill.stat;
+          skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
+
+          if(skillTypes[skill.schema.type] == undefined){
+            skillTypes[skill.schema.type].values = {}
+            skillTypes[skill.schema.type].label = "SOUL.Skills." + skill.schema.type;
+          }
+
+          skillTypes[skill.schema.type].values[skill.name] = skill;
+          skillTypes[skill.schema.type].values[skill.name].fields = skill.system.schema.fields;
+
+          skillTypes[skill.schema.type].values[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
+          skillTypes[skill.schema.type].values[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
         }
         context.skills = skills;
+        context.skillTypes = skills;
+
         context.tab = context.tabs[partId]
         break;
       case "stats":
