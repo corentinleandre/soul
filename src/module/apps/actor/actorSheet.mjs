@@ -174,8 +174,10 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
 
           if(skillTypes[skill.schema.type] == undefined){
-            skillTypes[skill.schema.type].values = {}
-            skillTypes[skill.schema.type].label = "SOUL.Skills." + skill.schema.type;
+            skillTypes[skill.schema.type] = {
+              value: {},
+              label: "SOUL.Skills." + skill.schema.type
+            }
           }
 
           skillTypes[skill.schema.type].values[skill.name] = skill;
