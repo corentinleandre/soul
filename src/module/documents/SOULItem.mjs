@@ -11,11 +11,6 @@ export default class SOULItem extends foundry.documents.Item {
     const systemData = itemData.system;
     const flags = itemData.flags.soul || {};
 
-    if(this.isOwned){
-      systemData.updateItem?.(this.actor)
-    }
-    systemData.computeItem();
-
     /**
      * Flexible hook for modules to alter derived document data.
      * @param {SOULItem} item      The item preparing derived data.
