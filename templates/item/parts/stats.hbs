@@ -1,0 +1,11 @@
+<div class="stats grid grid-2row grid-flow-horizontal grid-align-center">
+  <!-- labels -->
+  <div> </div>
+  <div class="label-black">{{localize 'SOUL.Generic.Shorthands.value'}}</div>
+
+  <!-- stats auto -->
+  {{#each stats as |stat name|}}
+  <div class="label-brown">{{localize stat.shorthand}}</div>
+  <div>{{formInput stat.field value=stat.value}}</div>
+  {{/each}}
+</div>
