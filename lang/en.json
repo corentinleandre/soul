@@ -1,5 +1,13 @@
 {
   "SOUL": {
+    "Generic":{
+      "value": "Value",
+      "label": "Label",
+
+      "Shorthands":{
+        "value":"Val"
+      }
+    },
     "Characteristics":{
       "stamina":"Stamina",
       "attacks":"Attacks",
@@ -56,6 +64,7 @@
       "total":"Total"
     },
     "Skills":{
+      "skill":"Skill",
       "charm":"Charm",
       "row":"Row",
 
@@ -71,11 +80,30 @@
       "basic": "Basic",
       "advanced": "Advanced"
     },
+    "Races":{
+      "orc":"Orc",
+      "vedalken":"Vedalken",
+      "elf":"Elf",
+      "dwarf":"Dwarf",
+      "halfling":"Halfling",
+      "estoran":"Estoran",
+      "stygard":"Stygard",
+      "human":"Human",
+
+      "race":"Race",
+      "castes":"Castes"
+    },
+    "Castes":{
+
+      "caste":"Caste"
+    },
     "Sheets": {
       "Labels": {
         "ActorSheet": "Default SOUL Actor Sheet",
         "itemSheet": "Default SOUL Item Sheet",
-        "skillSheet": "Default SOUL Skill Sheet"
+        "skillSheet": "Default SOUL Skill Sheet",
+        "raceSheet": "Default SOUL Race Sheet",
+        "casteSheet": "Default SOUL Caste Sheet"
       },
       "Tabs": {
         "skills": "Skills",
