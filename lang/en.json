@@ -3,6 +3,7 @@
     "Generic":{
       "value": "Value",
       "label": "Label",
+      "id":"ID",
 
       "Shorthands":{
         "value":"Val"
@@ -68,7 +69,6 @@
       "row":"Row",
 
       "skill":"Skill",
-      "id":"ID",
       "subskill":"Subskill",
       "description":"Description",
       "level": "Level",
