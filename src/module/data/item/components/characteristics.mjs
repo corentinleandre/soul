@@ -8,7 +8,7 @@ export class CharacteristicsModel extends Ascending {
    * Metadata that describes this DataModel
    * @type { ItemDataModelMetadata }
    */
-  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
     hasCharacteristics: true
   }, { inplace: false }));
 

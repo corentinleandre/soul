@@ -12,7 +12,7 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
    * Metadata that describes this DataModel
    * @type { ItemDataModelMetadata }
    */
-  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
     permanent: true
   }, { inplace: false }));
 

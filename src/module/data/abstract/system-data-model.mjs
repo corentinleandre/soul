@@ -344,6 +344,30 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
   }
 
   /* -------------------------------------------- */
+
+  /**
+   * SOUL Custom function
+   * Return the merged metadata from the inheritance chain and all schema templates.
+   * This merges (in order):
+   *  - the superclass metadata,
+   *  - each template.metadata in this._schemaTemplates (in array order),
+   * Returned object is a new frozen object (does not mutate any source metadata).
+   * @returns {object}
+   */
+  static mixedMetadata() {
+    const merge = foundry.utils.mergeObject;
+    // Start with the superclass metadata (if any)
+    let result = merge({}, super.metadata ?? {}, { inplace: false });
+
+    // Merge metadata from every template in order
+    for ( const template of this._schemaTemplates ?? [] ) {
+      result = merge(result, template.metadata, { inplace: false });
+    }
+
+    return Object.freeze(result);
+  }
+
+  /* -------------------------------------------- */
   /*  Helpers                                     */
   /* -------------------------------------------- */
 

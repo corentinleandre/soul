@@ -14,7 +14,7 @@ export default class ActorDataMode extends SystemDataModel {
    * Metadata that describes this DataModel
    * @type { ActorDataModelMetadata }
    */
-  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
     scarrable: false
   }, { inplace: false }));
 

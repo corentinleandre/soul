@@ -8,7 +8,7 @@ export class StatsModel extends Ascending {
    * Metadata that describes this DataModel
    * @type { ItemDataModelMetadata }
    */
-  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
     hasStats: true
   }, { inplace: false }));
 

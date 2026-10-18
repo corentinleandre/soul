@@ -10,7 +10,7 @@ export default class Ascending extends SystemDataModel {
    * Metadata that describes this DataModel
    * @type { ItemDataModelMetadata }
    */
-  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
     ascending: true
   }, { inplace: false }));
 

@@ -11,7 +11,7 @@ export default class Descending extends SystemDataModel {
    * Metadata that describes this DataModel
    * @type { ItemDataModelMetadata }
    */
-  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
     descending: false
   }, { inplace: false }));
 
