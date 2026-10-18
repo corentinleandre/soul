@@ -18,6 +18,7 @@ export async function preloadHandlebarsTemplates() {
 
   const paths = {};
   for ( const path of partials ) {
+    paths[path] = path;
     paths[path.replace(".hbs", ".html")] = path;
     paths[`soul.${path.split("/").pop().replace(".hbs", "")}`] = path;
   }
