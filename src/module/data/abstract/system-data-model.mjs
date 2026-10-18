@@ -326,9 +326,6 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
       configurable: false
     });
 
-    //use the metadata of its progenitors to make his.
-    Object.defineProperty(Base, "metadata", Object.freeze(Base.mixedMetadata()));
-
     for ( const template of templates ) {
       // Take all static methods and fields from template and mix in to base class
       for ( const [key, descriptor] of Object.entries(Object.getOwnPropertyDescriptors(template)) ) {
@@ -342,6 +339,9 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
         Object.defineProperty(Base.prototype, key, descriptor);
       }
     }
+
+    //use the metadata of its progenitors to make his, ONCE the method transmitted -_-
+    Object.defineProperty(Base, "metadata", Object.freeze(Base.mixedMetadata()));
 
     return Base;
   }
