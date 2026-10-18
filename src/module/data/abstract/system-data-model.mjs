@@ -76,7 +76,9 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
    * Metadata that describes this DataModel.
    * @type {SystemDataModelMetadata}
    */
-  static metadata = Object.freeze(this.mixedMetadata());
+  static metadata = Object.freeze({
+
+  });
 
   get metadata() {
     return this.constructor.metadata;
@@ -323,6 +325,9 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
       writable: false,
       configurable: false
     });
+
+    //use the metadata of its progenitors to make his.
+    Object.defineProperty(Base, "metadata", Object.freeze(Base.mixedMetadata()));
 
     for ( const template of templates ) {
       // Take all static methods and fields from template and mix in to base class
