@@ -3,7 +3,7 @@ import {StatsModel} from "./components/stats.mjs";
 
 const { SchemaField, NumberField, StringField, ArrayField } = foundry.data.fields;
 
-export default class Race extends ItemDataModel.mixin(StatsModel){
+export default class Caste extends ItemDataModel.mixin(StatsModel){
 
   /**
    * Metadata that describes this DataModel
