@@ -7,6 +7,14 @@ import SystemDataModel from "../../../abstract/system-data-model.mjs";
  */
 export default class Descending extends SystemDataModel {
 
+  /**
+   * Metadata that describes this DataModel
+   * @type { ItemDataModelMetadata }
+   */
+  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+    descending: false
+  }, { inplace: false }));
+
   get hasDescending(){
     return true;
   }

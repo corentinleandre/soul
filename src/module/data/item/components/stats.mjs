@@ -4,6 +4,14 @@ const { SchemaField, NumberField } = foundry.data.fields;
 
 export class StatsModel extends Ascending {
 
+  /**
+   * Metadata that describes this DataModel
+   * @type { ItemDataModelMetadata }
+   */
+  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+    hasStats: true
+  }, { inplace: false }));
+
   /** @inheritdoc */
   static defineSchema(){
     let statSchema = {};

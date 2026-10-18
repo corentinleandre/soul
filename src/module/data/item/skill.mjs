@@ -7,6 +7,15 @@ const { SchemaField, NumberField, StringField } = foundry.data.fields;
  * Simple data model for skills as items.
  */
 export default class Skill extends ItemDataModel.mixin(Descending) {
+
+  /**
+   * Metadata that describes this DataModel
+   * @type { ItemDataModelMetadata }
+   */
+  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+    permanent: true
+  }, { inplace: false }));
+
   /** @inheritdoc */
   static LOCALIZATION_PREFIXES = ["SOUL.Skill"];
 

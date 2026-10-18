@@ -5,6 +5,14 @@ const { SchemaField, NumberField, StringField, ArrayField } = foundry.data.field
 
 export default class Race extends ItemDataModel.mixin(StatsModel){
 
+  /**
+   * Metadata that describes this DataModel
+   * @type { ItemDataModelMetadata }
+   */
+  static metadata = Object.freeze(foundry.utils.mergeObject(super.metadata,{
+    permanent: true
+  }, { inplace: false }));
+
   /** @inheritdoc */
   static LOCALIZATION_PREFIXES = ["SOUL.Skill"];
 
