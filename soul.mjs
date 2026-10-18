@@ -30,7 +30,9 @@ import SOULItem from "./src/module/documents/SOULItem.mjs";
 import SOULScene from "./src/module/documents/SOULScene.mjs";
 import SOULUser from "./src/module/documents/SOULUser.mjs";
 
+//Other imports
 import SOUL from "./src/module/config.mjs";
+import * as utils from "./src/module/utils.mjs";
 import { localizeHelper } from "./src/module/helpers/utils.mjs";
 
 /* -------------------------------------------- */
@@ -38,6 +40,8 @@ import { localizeHelper } from "./src/module/helpers/utils.mjs";
 /* -------------------------------------------- */
 
 Hooks.once("init", () => {
+
+
   CONFIG.SOUL = SOUL;
 
   // Assign document classes
@@ -89,6 +93,9 @@ Hooks.once("init", () => {
   DocumentSheetConfig.registerSheet(itemClass, "soul", SOULCasteSheet, {
     types : ["caste"], makeDefault: true, label: "SOUL.Sheets.Labels.casteSheet"
   })
+
+  //preload handlebars partials
+  utils.preloadHandlebarsTemplates();
 
   // Sidebar tabs
   CONFIG.ui.combat = apps.Combat.SOULCombatTracker;
