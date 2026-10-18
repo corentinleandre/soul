@@ -68,7 +68,7 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
    */
   static _immiscible = new Set(["length", "mixed", "name", "prototype", "cleanData", "_cleanData",
     "_initializationOrder", "validateJoint", "_validateJoint", "migrateData", "_migrateData",
-    "shimData", "_shimData", "defineSchema", "resetData", "_resetData"]);
+    "shimData", "_shimData", "defineSchema", "resetData", "_resetData", "metadata"]);
 
   /* -------------------------------------------- */
 
@@ -76,9 +76,7 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
    * Metadata that describes this DataModel.
    * @type {SystemDataModelMetadata}
    */
-  static metadata = Object.freeze({
-
-  });
+  static metadata = Object.freeze(this.mixedMetadata());
 
   get metadata() {
     return this.constructor.metadata;
