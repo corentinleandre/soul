@@ -5,12 +5,16 @@ import { SOULActorSheet } from "./src/module/apps/actor/actorSheet.mjs";
 // ---- Items
 import { SOULItemSheet } from "./src/module/apps/item/itemSheet.mjs";
 import { SOULSkillSheet } from "./src/module/apps/item/skillSheet.mjs";
+import { SOULRaceSheet } from "./src/module/apps/item/raceSheet.mjs";
+import { SOULCasteSheet } from "./src/module/apps/item/casteSheet.mjs";
 
 // DataModel imports
 // ---- Actors
 import BaseModel from "./src/module/data/actor/base.mjs";
 // ---- Items
 import Skill from "./src/module/data/item/skill.mjs";
+import Race from "./src/module/data/item/race.mjs";
+import Caste from "./src/module/data/item/caste.mjs";
 // ---- Comabatant
 import Player from "./src/module/data/combatant/player.mjs";
 
@@ -56,6 +60,8 @@ Hooks.once("init", () => {
 
   // ---- Items
   CONFIG.Item.dataModels["skill"] = Skill;
+  CONFIG.Item.dataModels["race"] = Race;
+  CONFIG.Item.dataModels["caste"] = Caste;
 
   // ---- Combatants
   CONFIG.Combatant.dataModels["player"] = Player;
@@ -76,6 +82,12 @@ Hooks.once("init", () => {
   })
   DocumentSheetConfig.registerSheet(itemClass, "soul", SOULSkillSheet, {
     types : ["skill"], makeDefault: true, label: "SOUL.Sheets.Labels.skillSheet"
+  })
+  DocumentSheetConfig.registerSheet(itemClass, "soul", SOULRaceSheet, {
+    types : ["race"], makeDefault: true, label: "SOUL.Sheets.Labels.raceSheet"
+  })
+  DocumentSheetConfig.registerSheet(itemClass, "soul", SOULCasteSheet, {
+    types : ["caste"], makeDefault: true, label: "SOUL.Sheets.Labels.casteSheet"
   })
 
   // Sidebar tabs

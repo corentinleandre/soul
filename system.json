@@ -52,7 +52,9 @@
       "basechar": {}
     },
     "Item": {
-      "skill": {}
+      "skill": {},
+      "race": {},
+      "caste": {}
     },
     "Combatant": {
       "player": {}
