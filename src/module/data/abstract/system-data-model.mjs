@@ -351,7 +351,8 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
    * This merges (in order):
    *  - the superclass metadata,
    *  - each template.metadata in this._schemaTemplates (in array order),
-   * Returned object is a new frozen object (does not mutate any source metadata).
+   * Returned object is a new object (does not mutate any source metadata).
+   * Any freezing is expected to be done by the metadata declaration
    * @returns {object}
    */
   static mixedMetadata() {
@@ -364,7 +365,7 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
       result = merge(result, template.metadata, { inplace: false });
     }
 
-    return Object.freeze(result);
+    return result;
   }
 
   /* -------------------------------------------- */
