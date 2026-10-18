@@ -86,6 +86,9 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
       config: CONFIG,
     });
 
+    this._prepareStats(context);
+    this._prepareCharacteristics(context);
+
     return context;
   }
 
@@ -114,6 +117,40 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
    */
   _onRender(context, options) {
     this.#dragDrop.forEach((d) => d.bind(this.element));
+  }
+
+  /* -------------------------------------------------- */
+  /*   System helpers                                   */
+  /* -------------------------------------------------- */
+
+  _prepareStats(context){
+    if(this.item.system.hasStats ?? false){
+      let stats = {}
+      for(const stat in CONFIG.SOUL.stats){
+        stats[stat] = {value: this.item.system[stat]}
+        stats[stat].field = this.item.system.schema.fields[stat]
+
+        stats[stat].label = CONFIG.SOUL.stats[stat].label
+        stats[stat].shorthand = CONFIG.SOUL.stats[stat].shorthand
+      }
+      context.stats = stats;
+    }
+  }
+
+  /* -------------------------------------------------- */
+
+  _prepareCharacteristics(context){
+    if(this.item.system.hasCharacteristics ?? false){
+      let characteristics = {}
+      for(const char in CONFIG.SOUL.characteristics){
+        characteristics[char] = {value: this.item.system[char]}
+        characteristics[char].field = this.item.system.schema.fields[char]
+
+        characteristics[char].label = CONFIG.SOUL.characteristics[char].label
+        characteristics[char].shorthand = CONFIG.SOUL.characteristics[char].shorthand
+      }
+      context.characteristics = characteristics;
+    }
   }
 
   /* -------------------------------------------------- */
