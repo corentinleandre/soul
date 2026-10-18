@@ -64,10 +64,12 @@
       "total":"Total"
     },
     "Skills":{
-      "skill":"Skill",
       "charm":"Charm",
       "row":"Row",
 
+      "skill":"Skill",
+      "id":"ID",
+      "subskill":"Subskill",
       "description":"Description",
       "level": "Level",
       "maxLevel":"Max Level",

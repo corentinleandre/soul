@@ -17,7 +17,10 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
     return {
       ...super.defineSchema(),
       type: new StringField({required:true, choices:CONFIG.SOUL.skillTypes, initial:"advanced"}),
-      label: new StringField({required:true, initial:"SOUL.Skills.skill"}),
+      skillId: new StringField({required:true, initial:"Skill"}),
+      skillLabel: new StringField({required:true, initial:"SOUL.Skills.skill"}),
+      subskillId: new StringField(),
+      subskillLabel: new StringField(),
       description: new StringField({initial:"Description here"}),
       level: new NumberField({required: true, integer: true, min: -1, initial: -1}),
       maxLevel: new NumberField({required: true, integer:true, min: -1, initial: -1}),
