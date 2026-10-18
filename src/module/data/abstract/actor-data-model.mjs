@@ -8,7 +8,7 @@ import SystemDataModel from "./system-data-model.mjs";
 /**
  * Specialized Data class for actors
  */
-export default class ActorDataMode extends SystemDataModel {
+export default class ActorDataModel extends SystemDataModel {
 
   /**
    * Metadata that describes this DataModel
