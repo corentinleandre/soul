@@ -5,9 +5,9 @@ import {SOULItemSheet} from "./itemSheet.mjs";
 const { api, sheets } = foundry.applications;
 
 /**
- * Extend the basic RaceSheet with some very simple modifications.
+ * Extend the basic CasteSheet with some very simple modifications.
  */
-export class SOULRaceSheet extends SOULItemSheet {
+export class SOULCasteSheet extends SOULItemSheet {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     position: {
