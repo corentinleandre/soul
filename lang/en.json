@@ -136,7 +136,7 @@
   },
   "TYPES": {
     "Actor": {
-      "basecreature":"Base Creature"
+      "basechar":"Base Character"
     },
     "Item": {
       "skill":"Skill",
