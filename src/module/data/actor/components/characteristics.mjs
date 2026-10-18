@@ -4,6 +4,14 @@ const { SchemaField, NumberField } = foundry.data.fields;
 
 export class CharacteristicsModel extends SystemDataModel {
 
+  /**
+   * Metadata that describes this DataModel
+   * @type { ActorDataModelMetadata }
+   */
+  static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
+    hasCharacteristics: true
+  }, { inplace: false }));
+
   /** @inheritdoc */
   static defineSchema(){
     let charSchema = {};
