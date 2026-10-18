@@ -139,7 +139,9 @@
       "basecreature":"Base Creature"
     },
     "Item": {
-      "skill":"Skill"
+      "skill":"Skill",
+      "race":"Race",
+      "caste":"Caste"
     },
     "Combatant": {
       "player": "Player"
