@@ -17,6 +17,7 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
     return {
       ...super.defineSchema(),
       type: new StringField({required:true, choices:CONFIG.SOUL.skillTypes, initial:"advanced"}),
+      label: new StringField({required:true, initial:"SOUL.Skills.skill"}),
       description: new StringField({initial:"Description here"}),
       level: new NumberField({required: true, integer: true, min: -1, initial: -1}),
       maxLevel: new NumberField({required: true, integer:true, min: -1, initial: -1}),
@@ -50,13 +51,17 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
     return this.getSkillValue(this.statValue);
   }
 
+  get levelLimit(){
+    return this.maxLevel + this.maxMod;
+  }
+
   resetModifier(){
     this.modifier = 0;
   }
 
   getSkillValue(stat){
     if(this.isTrained){
-      return stat + (this.level*10);
+      return stat + this.modifier + (this.level*10);
     }else{
       return Math.ceil(stat/2);
     }

@@ -11,7 +11,7 @@ export default class Ascending extends SystemDataModel {
   }
 
   /**
-   * ascends a structured clone of the item model, to prevent mutations.
+   * ascends the item model, to prevent mutations.
    * @returns the item model clone
    */
   ascend(){
