@@ -170,7 +170,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           skills[skill.name] = skill;
           skills[skill.name].fields = skill.system.schema.fields;
 
-          skills[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
           skills[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
 
           if(skillTypes[skill.system.type] == undefined){
@@ -183,7 +182,6 @@ export class SOULActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
           skillTypes[skill.system.type].values[skill.name] = skill;
           skillTypes[skill.system.type].values[skill.name].fields = skill.system.schema.fields;
 
-          skillTypes[skill.system.type].values[skill.name].label = CONFIG.SOUL.skills[skill.name]?.label ?? skill.name;
           skillTypes[skill.system.type].values[skill.name].statLabel = CONFIG.SOUL.stats[skill.system.stat]?.shorthand ?? skill.stat;
         }
         context.skills = skills;
