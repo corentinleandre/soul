@@ -361,7 +361,10 @@ export default class SystemDataModel extends foundry.abstract.TypeDataModel {
   static mixedMetadata() {
     const merge = foundry.utils.mergeObject;
     // Start with the superclass metadata (if any)
-    let result = merge({}, super.metadata ?? {}, { inplace: false });
+    // Super defined so so that it changes with the class that calls it
+    // "super" doesn't change
+    const Super = Object.getPrototypeOf(this);
+    let result = merge({}, Super?.metadata ?? {}, { inplace: false });
 
     // Merge metadata from every template in order
     for ( const template of this._schemaTemplates ?? [] ) {
