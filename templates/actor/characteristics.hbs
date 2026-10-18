@@ -1,7 +1,7 @@
 {{! Characteristics tab}}
 <section class="tab scrollable {{tab.cssClass}}" data-group="primary" data-tab="characteristics">
   <div class="flexrow">
-    <div class="stats grid grid-5row grid-flow-horizontal grid-align-center">
+    <div class="characteristics grid grid-5row grid-flow-horizontal grid-align-center">
       <!-- labels -->
       <div> </div>
       <div class="label-black">{{localize 'SOUL.Characteristics.min'}}</div>
@@ -9,7 +9,7 @@
       <div class="label-black">{{localize 'SOUL.Characteristics.base'}}</div>
       <div class="label-black">{{localize 'SOUL.Characteristics.current'}}</div>
 
-      <!-- stats auto -->
+      <!-- characteristics auto -->
       {{#each characteristics as |char name|}}
       <div class="label-brown">{{localize char.shorthand}}</div>
       <div class="soul-tile">{{char.min}}</div>
