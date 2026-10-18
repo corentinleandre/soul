@@ -12,7 +12,7 @@ export default class Descending extends SystemDataModel {
    * @type { ItemDataModelMetadata }
    */
   static metadata = Object.freeze(foundry.utils.mergeObject(this.mixedMetadata(),{
-    descending: false
+    descending: true
   }, { inplace: false }));
 
   get hasDescending(){
