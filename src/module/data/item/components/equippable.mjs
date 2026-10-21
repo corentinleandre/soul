@@ -1,6 +1,8 @@
+import SystemDataModel from "../../../abstract/system-data-model.mjs";
+
 const { SchemaField, NumberField, BooleanField, StringField } = foundry.data.fields;
 
-export default class Equippable {
+export default class Equippable extends SystemDataModel {
 
   /**
    * Metadata that describes this DataModel

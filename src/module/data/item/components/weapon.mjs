@@ -1,8 +1,8 @@
-import Ascending from "./abstract/ascending.mjs";
+import SystemDataModel from "../../../abstract/system-data-model.mjs";
 
 const { SchemaField, NumberField, BooleanField, StringField } = foundry.data.fields;
 
-export default class Weapon {
+export default class Weapon extends SystemDataModel {
 
   /**
    * Metadata that describes this DataModel
