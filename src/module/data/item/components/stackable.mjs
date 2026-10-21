@@ -1,4 +1,4 @@
-import SystemDataModel from "../../../abstract/system-data-model.mjs";
+import SystemDataModel from "../../abstract/system-data-model.mjs";
 
 const { SchemaField, NumberField } = foundry.data.fields;
 
