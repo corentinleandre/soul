@@ -14,16 +14,4 @@ export default class Ascending extends SystemDataModel {
     ascending: true
   }, { inplace: false }));
 
-  get hasAscending(){
-    return true;
-  }
-
-  /**
-   * ascends the item model, to prevent mutations.
-   * @returns the item model clone
-   */
-  ascend(){
-    return this;
-  }
-
 }

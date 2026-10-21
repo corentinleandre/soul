@@ -15,16 +15,4 @@ export default class Descending extends SystemDataModel {
     descending: true
   }, { inplace: false }));
 
-  get hasDescending(){
-    return true;
-  }
-
-  /**
-   * Should be non-mutating, and only used to grab info.
-   * @param {*} actor the actor that is affecting this item (preferably a clone)
-   */
-  descend(actor){
-
-  }
-
 }

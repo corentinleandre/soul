@@ -12,27 +12,23 @@ export default class SOULActor extends foundry.documents.Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.soul || {};
 
+    // reinitialize storage when loading everything back up
+    systemData.storage = {};
+
     //Item ascending information
     for(const item of this.items){
-      if(item.system.constructor.metadata.ascending ?? false){
-        this.receiveAscending(item.system.ascend())
+      if(item.system.metadata.ascending ?? false){
+        this.derive(item);
       }
     }
 
     //computations with all the information
-    if(systemData.hasStats ?? false){
+    if(systemData.metadata.hasStats ?? false){
       systemData.computeStats?.();
     }
-    if(systemData.hasCharacteristics ?? false){
+    if(systemData.metadata.hasCharacteristics ?? false){
       systemData.computeCharacteristics?.();
       systemData.clampCharacteristics?.();
-    }
-
-    //Item descending information
-    for(const item of this.items){
-      if(item.system.hasDescending ?? false){
-        item.system.descend(this);
-      }
     }
 
     /**
@@ -42,7 +38,25 @@ export default class SOULActor extends foundry.documents.Actor {
     Hooks.callAll("SOUL.prepareActorData", this);
   }
 
-  receiveAscending(itemModel){
-
+  derive(item){
+    if(item.system.metadata.hasStats ?? false){
+      for(const stat in CONFIG.SOUL.stats){
+        if(item.system.metadata.permanent ?? false){
+          this.system[stat].base += item.system[stat] ?? 0;
+        }else{
+          this.system[stat].modifier += item.system[stat] ?? 0;
+        }
+      }
+    }
+    if(item.system.metadata.hasCharacteristics ?? false){
+      for(const char in CONFIG.SOUL.characteristics){
+        if(item.system.metadata.permanent ?? false){
+          this.system[char].base += item.system[char] ?? 0;
+        }else{
+          this.system[char].modifier += item.system[char] ?? 0;
+        }
+      }
+    }
   }
+
 }
