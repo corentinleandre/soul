@@ -2,7 +2,7 @@ import Ascending from "./abstract/ascending.mjs";
 
 const { SchemaField, NumberField } = foundry.data.fields;
 
-export class StatsModel extends Ascending {
+export default class StatsModel {
 
   /**
    * Metadata that describes this DataModel
@@ -25,9 +25,5 @@ export class StatsModel extends Ascending {
     })
 
     return this.mergeSchema(super.defineSchema(), schema)
-  }
-
-  get hasStats(){
-    return true;
   }
 }
