@@ -1,9 +1,10 @@
 import ItemDataModel from "../abstract/item-data-model.mjs";
-import {StatsModel} from "./components/stats.mjs";
+import Ascending from "./components/abstract/ascending.mjs";
+import StatsModel from "./components/stats.mjs";
 
 const { SchemaField, NumberField, StringField, ArrayField } = foundry.data.fields;
 
-export default class Caste extends ItemDataModel.mixin(StatsModel){
+export default class Caste extends ItemDataModel.mixin(StatsModel, Ascending){
 
   /**
    * Metadata that describes this DataModel
@@ -14,7 +15,7 @@ export default class Caste extends ItemDataModel.mixin(StatsModel){
   }, { inplace: false }));
 
   /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = ["SOUL.Skill"];
+  static LOCALIZATION_PREFIXES = ["SOUL.Castes"];
 
   /* -------------------------------------------------- */
 
