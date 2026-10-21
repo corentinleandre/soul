@@ -124,7 +124,7 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
   /* -------------------------------------------------- */
 
   _prepareStats(context){
-    if(this.item.system.hasStats ?? false){
+    if(this.item.system.metadata.hasStats ?? false){
       let stats = {}
       for(const stat in CONFIG.SOUL.stats){
         stats[stat] = {value: this.item.system[stat]}
@@ -140,7 +140,7 @@ export class SOULItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShe
   /* -------------------------------------------------- */
 
   _prepareCharacteristics(context){
-    if(this.item.system.hasCharacteristics ?? false){
+    if(this.item.system.metadata.hasCharacteristics ?? false){
       let characteristics = {}
       for(const char in CONFIG.SOUL.characteristics){
         characteristics[char] = {value: this.item.system[char]}
