@@ -2,3 +2,4 @@ node_modules
 soul.lock
 foundry-config.yaml
 foundry
+/.vscode
