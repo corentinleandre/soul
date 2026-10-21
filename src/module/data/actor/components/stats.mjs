@@ -93,9 +93,8 @@ export class StatsModel extends SystemDataModel {
 export class StatField extends SchemaField {
   constructor(fields={}, options={}){
     fields = {
-      base: new NumberField({required:true, integer: true, min: 0, initial:19}),
+      base: new NumberField({required:true, integer: true, initial:0}),
       modifier: new NumberField({required:true, integer:true, initial:0}),
-      advances: new NumberField({required:true, integer:true, initial:0}),
       bonusMod: new NumberField({required:true, integer:true, initial:0}),
       ...fields
     }
