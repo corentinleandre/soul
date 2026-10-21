@@ -55,12 +55,12 @@ export class StatsModel extends SystemDataModel {
   }
 
   /**
-   * Computes the value of a stat based on it's base, modifiers and advances
+   * Computes the value of a stat based on it's base, modifiers
    * @param {String} stat the name of the stat that needs computing/updating
    */
   _computeStatValue(stat){
     const obj = this[stat];
-    obj.value = obj.base + obj.modifier + obj.advances;
+    obj.value = obj.base + obj.modifier;
   }
 
   /**
@@ -86,7 +86,6 @@ export class StatsModel extends SystemDataModel {
     }
     obj.bonus = obj.rawBonus + obj.bonusMod;
   }
-
 
 }
 
