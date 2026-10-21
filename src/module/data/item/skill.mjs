@@ -17,7 +17,7 @@ export default class Skill extends ItemDataModel.mixin(Descending) {
   }, { inplace: false }));
 
   /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = ["SOUL.Skill"];
+  static LOCALIZATION_PREFIXES = ["SOUL.Skills"];
 
   /* -------------------------------------------------- */
 
