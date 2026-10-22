@@ -54,7 +54,9 @@
     "Item": {
       "skill": {},
       "race": {},
-      "caste": {}
+      "caste": {},
+      "innate": {},
+      "scar": {}
     },
     "Combatant": {
       "player": {}

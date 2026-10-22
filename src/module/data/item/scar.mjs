@@ -23,7 +23,8 @@ export default class Scar extends ItemDataModel.mixin(StatsModel, Characteristic
   /** @inheritdoc */
   static defineSchema(){
     return {
-      ...super.defineSchema()
+      ...super.defineSchema(),
+      type: new StringField({required:true, choices: CONFIG.SOUL.scarType, initial:"magical"})
     }
   }
 

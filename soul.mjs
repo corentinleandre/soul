@@ -7,6 +7,8 @@ import { SOULItemSheet } from "./src/module/apps/item/itemSheet.mjs";
 import { SOULSkillSheet } from "./src/module/apps/item/skillSheet.mjs";
 import { SOULRaceSheet } from "./src/module/apps/item/raceSheet.mjs";
 import { SOULCasteSheet } from "./src/module/apps/item/casteSheet.mjs";
+import { SOULInnateSheet } from "./src/module/apps/item/innateSheet.mjs;"
+import { SOULScarSheet } from "./src/module/apps/item/scarSheet.mjs";
 
 // DataModel imports
 // ---- Actors
@@ -15,6 +17,8 @@ import BaseModel from "./src/module/data/actor/base.mjs";
 import Skill from "./src/module/data/item/skill.mjs";
 import Race from "./src/module/data/item/race.mjs";
 import Caste from "./src/module/data/item/caste.mjs";
+import Innate from "./src/module/data/item/innate.mjs";
+import Scar from "./src/module/data/item/scar.mjs";
 // ---- Comabatant
 import Player from "./src/module/data/combatant/player.mjs";
 
@@ -66,6 +70,8 @@ Hooks.once("init", () => {
   CONFIG.Item.dataModels["skill"] = Skill;
   CONFIG.Item.dataModels["race"] = Race;
   CONFIG.Item.dataModels["caste"] = Caste;
+  CONFIG.Item.dataModels["innate"] = Innate;
+  CONFIG.Item.dataModels["scar"] = Scar;
 
   // ---- Combatants
   CONFIG.Combatant.dataModels["player"] = Player;
@@ -92,6 +98,12 @@ Hooks.once("init", () => {
   })
   DocumentSheetConfig.registerSheet(itemClass, "soul", SOULCasteSheet, {
     types : ["caste"], makeDefault: true, label: "SOUL.Sheets.Labels.casteSheet"
+  })
+  DocumentSheetConfig.registerSheet(itemClass, "soul", SOULInnateSheet, {
+    types : ["innate"], makeDefault: true, label: "SOUL.Sheets.Labels.innateSheet"
+  })
+  DocumentSheetConfig.registerSheet(itemClass, "soul", SOULScarSheet, {
+    types : ["scar"], makeDefault: true, label: "SOUL.Sheets.Labels.scarSheet"
   })
 
   //preload handlebars partials
