@@ -4,6 +4,7 @@
       "value": "Value",
       "label": "Label",
       "id":"ID",
+      "type":"Type",
 
       "Shorthands":{
         "value":"Val"
