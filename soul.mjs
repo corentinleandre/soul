@@ -7,7 +7,7 @@ import { SOULItemSheet } from "./src/module/apps/item/itemSheet.mjs";
 import { SOULSkillSheet } from "./src/module/apps/item/skillSheet.mjs";
 import { SOULRaceSheet } from "./src/module/apps/item/raceSheet.mjs";
 import { SOULCasteSheet } from "./src/module/apps/item/casteSheet.mjs";
-import { SOULInnateSheet } from "./src/module/apps/item/innateSheet.mjs;"
+import { SOULInnateSheet } from "./src/module/apps/item/innateSheet.mjs";
 import { SOULScarSheet } from "./src/module/apps/item/scarSheet.mjs";
 
 // DataModel imports
